@@ -571,6 +571,35 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 
 .scraps-section .empty-state { max-width: 480px; }
 
+/* ============================================================
+   Flowing ribbon — connects Hero / Watch My Stuff / Anime Edits /
+   My Story / Tools as the user scrolls. See js/ribbon.js.
+   ============================================================ */
+.ribbon-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.ribbon-wrap svg { display: block; width: 100%; height: 100%; }
+.ribbon-wrap path {
+  opacity: 0.35;
+  transition: stroke-dashoffset 0.1s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ribbon-wrap path { transition: none; }
+}
+@media (max-width: 720px) {
+  /* Margins are too thin on small screens for the ribbon to stay clear of
+     content, so it's hidden rather than risk overlapping text/cards. */
+  .ribbon-wrap { display: none; }
+}
+
+/* My Story section */
+.my-story-text { max-width: 640px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+
 /* Shown only when the page is opened via file:// instead of Start Website.bat */
 .file-protocol-warning {
   position: fixed;

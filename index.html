@@ -9,310 +9,202 @@
 </head>
 <body>
 
+<!-- ============================================================
+     RIBBON (design/animation only — nothing to edit here).
+     See js/ribbon.js for the anchor points it connects, and the
+     gradient stop colors below if you want to change its color.
+     ============================================================ -->
+<div class="ribbon-wrap" id="ribbonWrap" aria-hidden="true">
+  <svg id="ribbonSvg" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="ribbonGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="400" y2="0">
+        <stop offset="0%" stop-color="#ff4d6d"/>
+        <stop offset="50%" stop-color="#7c5cff"/>
+        <stop offset="100%" stop-color="#ff4d6d"/>
+        <animateTransform attributeName="gradientTransform" type="translate" from="-400 0" to="400 0" dur="10s" repeatCount="indefinite"/>
+      </linearGradient>
+    </defs>
+    <path id="ribbonPath" d="" fill="none" stroke="url(#ribbonGradient)" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+</div>
+
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 <div class="blob blob-3"></div>
 
+<!-- ===== CHANNEL HEADER — banner/avatar/name/handle come from content.js "brand" ===== -->
 <div class="yt-banner-wrap" id="top">
-  <img src="assets/images/BANNER/banner_1.jpeg" alt="HEXOR_8 banner" class="yt-banner">
+  <img data-c-src="brand.bannerImage" src="" alt="Channel banner" class="yt-banner">
   <div class="channel-bar">
-    <img src="assets/images/PFP.jpeg" alt="HEXOR_8 avatar" class="channel-avatar">
+    <img data-c-src="brand.avatarImage" src="" alt="Channel avatar" class="channel-avatar">
     <div class="channel-info">
-      <div class="name">HEXOR_8</div>
-      <div class="handle">@hexor_8</div>
+      <div class="name" data-c="brand.name">HEXOR_8</div>
+      <div class="handle" data-c="brand.handle">@hexor_8</div>
     </div>
     <div class="channel-socials">
-      <a href="https://www.youtube.com/@hexor_8" target="_blank" rel="noopener" aria-label="YouTube">
+      <a id="channelYoutubeLink" href="#" target="_blank" rel="noopener" aria-label="YouTube">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/></svg>
       </a>
-      <a href="https://instagram.com/hexor_8" target="_blank" rel="noopener" aria-label="Instagram">
+      <a id="channelInstagramLink" href="#" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
       </a>
     </div>
   </div>
 </div>
 
+<!-- ===== TOP NAV — labels come from content.js "nav" ===== -->
 <nav class="site-nav">
   <a href="#top" class="brand">
-    <span class="brand-icon"><img src="assets/images/LOGO%20ANIMATION/MYICONSHIT.png" alt=""></span>
-    HEXOR_8<span class="dot">.</span>
+    <span class="brand-icon"><img data-c-src="brand.iconImage" src="" alt=""></span>
+    <span data-c="brand.name">HEXOR_8</span><span class="dot">.</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle menu">☰</button>
   <ul class="nav-links">
-    <li><a href="#top">Home</a></li>
-    <li><a href="#watch-my-stuff">Watch My Stuff</a></li>
-    <li><a href="#hire-me">Hire Me</a></li>
+    <li><a href="#top" data-c="nav.home">Home</a></li>
+    <li><a href="#watch-my-stuff" data-c="nav.watchMyStuff">Watch My Stuff</a></li>
+    <li><a href="#hire-me" data-c="nav.hireMe">Hire Me</a></li>
   </ul>
 </nav>
 
 <main>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO — edit text in content.js "hero" ============ -->
   <section class="hero" id="hero">
     <div>
-      <span class="badge">welcome!</span>
-      <h1>Hey, I'm <span class="highlight">HEXOR_8</span></h1>
-      <p>Editing, compositing, and motion design.</p>
+      <span class="badge" data-c="hero.badge">welcome!</span>
+      <h1><span data-c="hero.headingBeforeName">Hey, I'm </span><span class="highlight" data-c="hero.headingName">HEXOR_8</span></h1>
+      <p data-c="hero.paragraph">Editing, compositing, and motion design.</p>
       <div class="btn-row">
-        <a href="#watch-my-stuff" class="btn btn-primary">Watch My Stuff</a>
-        <a href="#hire-me" class="btn btn-outline">Hire Me</a>
+        <a href="#watch-my-stuff" class="btn btn-primary" data-c="hero.primaryButton">Watch My Stuff</a>
+        <a href="#hire-me" class="btn btn-outline" data-c="hero.secondaryButton">Hire Me</a>
       </div>
     </div>
     <div class="hero-portrait reveal">
-      <img src="assets/images/PFP.jpeg" alt="HEXOR_8 character art">
+      <img data-c-src="hero.portraitImage" src="" alt="Character art">
     </div>
   </section>
 
-  <!-- ============ WATCH MY STUFF (simple category nav, no scroll animation) ============ -->
+  <!-- ============ WATCH MY STUFF — edit text in content.js "watchMyStuff",
+       buttons in "watchMyStuff.categories" ============ -->
   <section class="section" id="watch-my-stuff" style="padding-bottom:0;">
     <div class="center">
-      <span class="section-label">Watch My Stuff</span>
-      <p class="section-sub" style="margin:10px auto 0;">Anime edits, talking-head videos, and GFX.</p>
+      <span class="section-label" data-c="watchMyStuff.label">Watch My Stuff</span>
+      <p class="section-sub" style="margin:10px auto 0;" data-c="watchMyStuff.paragraph">Anime edits, talking-head videos, and GFX.</p>
     </div>
-    <nav class="category-nav" id="categoryNav" aria-label="Portfolio categories">
-      <a href="#anime-edits">Anime Edits</a>
-      <a href="#talking-head">Talking-Head</a>
-      <a href="#gfx">GFX</a>
-    </nav>
+    <!-- Buttons below are generated from content.js by js/render.js -->
+    <nav class="category-nav" id="categoryNav" aria-label="Portfolio categories"></nav>
     <div id="categoryNavSentinel"></div>
   </section>
 
-  <!-- ============ ANIME EDITS ============ -->
+  <!-- ============ ANIME EDITS — edit videos in content.js "animeEdits.videos" ============ -->
   <section class="section reveal" id="anime-edits">
-    <span class="section-label">Anime Edits</span>
-    <h2 class="section-title">Anime Edits</h2>
-    <p class="section-sub">Anime edits from my YouTube channel.</p>
-    <div class="media-grid">
-      <!-- Click plays inline in the lightbox (no page navigation). Requires the site to be
-           opened via "Start Website.bat" (or any local server) rather than double-clicking
-           index.html — YouTube's embed player rejects a file:// origin. See fileProtocolWarning.
-           To add more later: copy one <button class="media-card"> block and swap the video ID
-           in the thumbnail URL and data-lightbox-video, then update the caption. -->
-      <button type="button" class="media-card" data-lightbox-video="qrsYoF5Jc30">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/qrsYoF5Jc30/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Himouto! Umaru-chan Edit // Mograph</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="e5PxljLup4M">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/e5PxljLup4M/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">TOY-BOX – E.T | Urusei Yatsura Mograph edit</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="rPurzqi0o5Y">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/rPurzqi0o5Y/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">LOVE ME HARDER // Violet Evergarden</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="zScqKy7-MB4">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/zScqKy7-MB4/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Oshi no ko & My Dress Up Darling — Rather Lie</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="UimwnZVS4TQ">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/UimwnZVS4TQ/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Arknights Enfield edit // Dancing Nihilist</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="4qrnhV2cNgI">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/4qrnhV2cNgI/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Sumi Sakurasawa | Mograph Edit</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="gdacI2X2xB0">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/gdacI2X2xB0/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Mad Tsai – Boys Beware // Hayuki</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="LiK25yVyXMM">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/LiK25yVyXMM/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Neon Genesis Evangelion × Serial Experiments Lain — Softcore</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="oYssVWLPUzc">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/oYssVWLPUzc/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">Columbina // DUMBO - Travis Scott</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="TgU05miaB58">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/TgU05miaB58/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">REFLECTIONS - Denji [Chainsaw Man]</div>
-      </button>
-      <button type="button" class="media-card" data-lightbox-video="U0BdjW1KutY">
-        <div class="media-thumb"><img src="https://i.ytimg.com/vi/U0BdjW1KutY/hqdefault.jpg" alt=""><span class="play">▶</span></div>
-        <div class="caption">MC Leren | New Person, Same Old Mistakes</div>
-      </button>
-      <div class="media-card add-more-tile">
-        <span>+</span>
-        <div class="caption">More go here</div>
-      </div>
-    </div>
+    <span class="section-label" data-c="animeEdits.label">Anime Edits</span>
+    <h2 class="section-title" data-c="animeEdits.heading">Anime Edits</h2>
+    <p class="section-sub" data-c="animeEdits.paragraph">Anime edits from my YouTube channel.</p>
+    <!-- Video cards below are generated from content.js by js/render.js.
+         To add a video: add a { id, title } entry to animeEdits.videos
+         in content.js — no HTML editing needed. -->
+    <div class="media-grid" id="animeEditsGrid"></div>
   </section>
 
-  <!-- ============ TALKING-HEAD VIDEOS ============ -->
+  <!-- ============ TALKING-HEAD VIDEOS — edit in content.js "talkingHead" ============ -->
   <section class="section reveal" id="talking-head">
-    <span class="section-label">Talking-Head Videos</span>
-    <h2 class="section-title">Talking-Head Videos</h2>
-    <p class="section-sub">Commentary and talking-head editing.</p>
-    <div class="media-grid">
-      <div class="media-card" style="grid-column: span 2; max-width:720px;">
-        <video controls preload="metadata" src="assets/videos/trial-render.mp4"></video>
-        <div class="caption">Trial Render <span>Graded · 2026</span></div>
-      </div>
-      <div class="media-card add-more-tile">
-        <span>+</span>
-        <div class="caption">More go here</div>
-      </div>
-    </div>
+    <span class="section-label" data-c="talkingHead.label">Talking-Head Videos</span>
+    <h2 class="section-title" data-c="talkingHead.heading">Talking-Head Videos</h2>
+    <p class="section-sub" data-c="talkingHead.paragraph">Commentary and talking-head editing.</p>
+    <!-- Generated from content.js "talkingHead.videos" by js/render.js -->
+    <div class="media-grid" id="talkingHeadGrid"></div>
   </section>
 
-  <!-- ============ GFX ============ -->
+  <!-- ============ GFX — edit images in content.js "gfx" ============ -->
   <section class="section reveal" id="gfx">
-    <span class="section-label">GFX</span>
-    <h2 class="section-title">GFX</h2>
+    <span class="section-label" data-c="gfx.label">GFX</span>
+    <h2 class="section-title" data-c="gfx.heading">GFX</h2>
 
     <div class="gfx-sub" id="gfx-banners">
-      <h3>Banners & Headers</h3>
-      <div class="banner-grid">
-        <button class="banner-item" type="button" data-lightbox data-src="assets/images/BANNER/banner_1.jpeg" aria-label="Open banner full size">
-          <img src="assets/images/BANNER/banner_1.jpeg" alt="HEXOR_8 channel banner">
-        </button>
-        <button class="banner-item" type="button" data-lightbox data-src="assets/images/BANNER/BANNER_3.jpeg" aria-label="Open banner full size">
-          <img src="assets/images/BANNER/BANNER_3.jpeg" alt="HEXOR banner design, orange theme">
-        </button>
-        <button class="banner-item" type="button" data-lightbox data-src="assets/images/BANNER/BANNER_4.png" aria-label="Open banner full size">
-          <img src="assets/images/BANNER/BANNER_4.png" alt="HEXOR banner design, gold theme">
-        </button>
-        <button class="banner-item" type="button" data-lightbox data-src="assets/images/BANNER/COLUMBIA%20BANNER.jpg" aria-label="Open banner full size">
-          <img src="assets/images/BANNER/COLUMBIA%20BANNER.jpg" alt="HEXOR banner design, purple theme">
-        </button>
-      </div>
+      <h3 data-c="gfx.banners.heading">Banners & Headers</h3>
+      <!-- Generated from content.js "gfx.banners.items" by js/render.js -->
+      <div class="banner-grid" id="gfxBannerGrid"></div>
     </div>
 
     <div class="gfx-sub" id="gfx-thumbnails">
-      <h3>Thumbnails</h3>
-      <div class="thumb-grid">
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/THUMBNIAL_1.jpeg"><img src="assets/images/THUMBNAILS/THUMBNIAL_1.jpeg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/THUMBNIAL_2.jpeg"><img src="assets/images/THUMBNAILS/THUMBNIAL_2.jpeg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/Tadimeline%201_ad01_0ad0_54_08.jpg"><img src="assets/images/THUMBNAILS/Tadimeline%201_ad01_0ad0_54_08.jpg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/Tawdimawdeaawdline%201wd_awd0awd1_03_04_09.jpg"><img src="assets/images/THUMBNAILS/Tawdimawdeaawdline%201wd_awd0awd1_03_04_09.jpg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/Timeline%201_01_00_45_10.jpg"><img src="assets/images/THUMBNAILS/Timeline%201_01_00_45_10.jpg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/Timeline%201_0awd1_00_45_10.jpg"><img src="assets/images/THUMBNAILS/Timeline%201_0awd1_00_45_10.jpg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/Timwdeline%201_01_00awdawd_22_09.jpg"><img src="assets/images/THUMBNAILS/Timwdeline%201_01_00awdawd_22_09.jpg" alt="Thumbnail"></button>
-        <button class="thumb-item" type="button" data-lightbox data-src="assets/images/THUMBNAILS/f25c7923-db4c-4cdc-a902-9851927ede61.png"><img src="assets/images/THUMBNAILS/f25c7923-db4c-4cdc-a902-9851927ede61.png" alt="Thumbnail"></button>
-      </div>
+      <h3 data-c="gfx.thumbnails.heading">Thumbnails</h3>
+      <!-- Generated from content.js "gfx.thumbnails.items" by js/render.js -->
+      <div class="thumb-grid" id="gfxThumbGrid"></div>
     </div>
   </section>
 
-  <!-- ============ TOOLS + SOCIALS ============ -->
+  <!-- ============ MY STORY — edit text in content.js "myStory" ============ -->
+  <section class="section reveal" id="my-story">
+    <span class="section-label" data-c="myStory.label">My Story</span>
+    <h2 class="section-title" data-c="myStory.heading">My Story</h2>
+    <p class="my-story-text" data-c="myStory.paragraph">Placeholder bio.</p>
+  </section>
+
+  <!-- ============ TOOLS — edit list in content.js "tools.items" ============ -->
+  <section class="section reveal" id="tools">
+    <span class="section-label" data-c="tools.label">Tools</span>
+    <h2 class="section-title" data-c="tools.heading">Tools</h2>
+    <!-- Generated from content.js "tools.items" by js/render.js -->
+    <div class="tools-grid" id="toolsGrid"></div>
+  </section>
+
+  <!-- ============ SOCIALS — edit list in content.js "socials.items" ============ -->
   <section class="section reveal">
-    <span class="section-label">Tools</span>
-    <h2 class="section-title">Tools</h2>
-    <div class="tools-grid">
-      <div class="tool-card">
-        <span class="tool-icon">🎛</span>
-        <div class="tool-name">DaVinci Resolve 21</div>
-        <div class="tool-sub">Editing · Fusion · Color · Audio</div>
-      </div>
-      <div class="tool-card">
-        <span class="tool-icon">🧊</span>
-        <div class="tool-name">Blender</div>
-        <div class="tool-sub">3D · Modeling · Animation</div>
-      </div>
-    </div>
+    <span class="section-label" data-c="socials.label">Socials</span>
+    <h2 class="section-title" data-c="socials.heading">Find Me</h2>
+    <!-- Generated from content.js "socials.items" by js/render.js -->
+    <div class="social-grid" id="socialsGrid"></div>
   </section>
 
-  <section class="section reveal">
-    <span class="section-label">Socials</span>
-    <h2 class="section-title">Find Me</h2>
-    <div class="social-grid">
-      <a class="social-card" href="https://www.youtube.com/@hexor_8" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/></svg>
-        </span>
-        <span class="social-name">YouTube</span>
-        <span class="social-handle">@hexor_8</span>
-      </a>
-      <a class="social-card" href="https://instagram.com/hexor_8" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-        </span>
-        <span class="social-name">Instagram</span>
-        <span class="social-handle">@hexor_8</span>
-      </a>
-      <a class="social-card" href="https://discord.com/users/hexor_mp4" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 5.4A18.3 18.3 0 0 0 15.8 4c-.2.4-.5.9-.6 1.3a17 17 0 0 0-6.4 0c-.2-.4-.4-.9-.6-1.3-1.6.3-3.1.8-4.5 1.4C1 9.9.3 14.3.6 18.6a18.4 18.4 0 0 0 5.6 2.8c.4-.6.8-1.3 1.2-2a12 12 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11 0l.4.4c-.6.3-1.2.6-1.9.9.4.7.8 1.4 1.2 2a18.3 18.3 0 0 0 5.6-2.8c.4-5-.9-9.3-2.9-13.2ZM8.7 15.9c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1c1 0 1.9 1 1.8 2.1 0 1.2-.8 2.1-1.8 2.1Zm6.6 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1c1 0 1.9 1 1.8 2.1 0 1.2-.8 2.1-1.8 2.1Z"/></svg>
-        </span>
-        <span class="social-name">Discord</span>
-        <span class="social-handle">@hexor_mp4</span>
-      </a>
-      <div class="social-card social-card-more">
-        <span class="social-name">More soon</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SCRAPS (bonus, further down) ============ -->
+  <!-- ============ SCRAPS — edit text in content.js "scraps" ============ -->
   <section class="section reveal scraps-section" id="scraps">
-    <span class="section-label">Scraps</span>
-    <h2 class="section-title">Scraps</h2>
-    <p class="section-sub">Experiments and miscellaneous stuff that didn't become a full project.</p>
-    <div class="empty-state">Nothing here yet.</div>
+    <span class="section-label" data-c="scraps.label">Scraps</span>
+    <h2 class="section-title" data-c="scraps.heading">Scraps</h2>
+    <p class="section-sub" data-c="scraps.paragraph">Experiments and miscellaneous stuff that didn't become a full project.</p>
+    <div class="empty-state" data-c="scraps.emptyText">Nothing here yet.</div>
   </section>
 
-  <!-- ============ COMMISSION / CONTACT ============ -->
+  <!-- ============ COMMISSION / CONTACT — edit in content.js "commission" ============ -->
   <section class="section reveal" id="hire-me">
-    <span class="section-label">Hire Me</span>
-    <h2 class="section-title">Commission Me</h2>
-    <p class="section-sub">Fill out the form below or reach out directly.</p>
+    <span class="section-label" data-c="commission.label">Hire Me</span>
+    <h2 class="section-title" data-c="commission.heading">Commission Me</h2>
+    <p class="section-sub" data-c="commission.paragraph">Fill out the form below or reach out directly.</p>
 
-    <div class="accordion-item">
-      <div class="accordion-head"><span>Payment</span><span class="arrow">▾</span></div>
-      <div class="accordion-body"><p>Placeholder: e.g. 50% upfront, 50% on delivery. Payment methods accepted: TBD.</p></div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-head"><span>Revisions</span><span class="arrow">▾</span></div>
-      <div class="accordion-body"><p>Placeholder: number of free revisions included, extra revisions billed at $TBD each.</p></div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-head"><span>Turnaround Time</span><span class="arrow">▾</span></div>
-      <div class="accordion-body"><p>Placeholder: estimated delivery windows, rush order policy TBD.</p></div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-head"><span>Usage Rights</span><span class="arrow">▾</span></div>
-      <div class="accordion-body"><p>Placeholder: what the client can/can't do with the finished work.</p></div>
-    </div>
+    <!-- Generated from content.js "commission.terms" by js/render.js -->
+    <div id="commissionTerms"></div>
 
     <div class="contact-card" style="margin-top:32px;">
       <form id="commission-form">
         <div class="form-row">
-          <label for="name">Your name</label>
+          <label for="name" data-c="commission.form.nameLabel">Your name</label>
           <input type="text" id="name" required>
         </div>
         <div class="form-row">
-          <label for="type">What do you need?</label>
-          <select id="type">
-            <option>Anime Edit</option>
-            <option>Talking-Head Edit</option>
-            <option>GFX (Thumbnail / Banner)</option>
-            <option>Custom / Other</option>
-          </select>
+          <label for="type" data-c="commission.form.typeLabel">What do you need?</label>
+          <!-- Options generated from content.js "commission.form.typeOptions" -->
+          <select id="type"></select>
         </div>
         <div class="form-row">
-          <label for="details">Details</label>
-          <textarea id="details" rows="4" placeholder="Describe what you're looking for..."></textarea>
+          <label for="details" data-c="commission.form.detailsLabel">Details</label>
+          <textarea id="details" rows="4" data-c-placeholder="commission.form.detailsPlaceholder" placeholder="Describe what you're looking for..."></textarea>
         </div>
         <div class="form-row">
-          <label for="contact">Best way to reach you (email/Discord)</label>
+          <label for="contact" data-c="commission.form.contactLabel">Best way to reach you (email/Discord)</label>
           <input type="text" id="contact" required>
         </div>
-        <button type="submit" class="btn btn-primary">Send request</button>
+        <button type="submit" class="btn btn-primary" data-c="commission.form.submitButton">Send request</button>
       </form>
 
-      <div class="contact-links">
-        <a href="mailto:hello@example.com">Email</a>
-        <a href="https://discord.com/users/hexor_mp4" target="_blank" rel="noopener">Discord</a>
-        <a href="https://www.youtube.com/@hexor_8" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://instagram.com/hexor_8" target="_blank" rel="noopener">Instagram</a>
-      </div>
+      <!-- Generated from content.js "commission.contactLinks" by js/render.js -->
+      <div class="contact-links" id="commissionContactLinks"></div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  &copy; 2026 HEXOR_8. All rights reserved.
+<footer data-c="footer.text">
+  © 2026 HEXOR_8. All rights reserved.
 </footer>
 
 <!-- Fullscreen lightbox for thumbnails/banners/videos -->
@@ -331,8 +223,14 @@
   <button id="fileProtocolWarningClose" aria-label="Dismiss">✕</button>
 </div>
 
+<!-- content.js + js/render.js MUST load before the other scripts below —
+     they build the page from your content before script.js/category-nav.js/
+     lightbox.js go looking for elements to attach behavior to. -->
+<script src="content.js"></script>
+<script src="js/render.js"></script>
 <script src="js/script.js"></script>
 <script src="js/category-nav.js"></script>
 <script src="js/lightbox.js"></script>
+<script src="js/ribbon.js"></script>
 </body>
 </html>

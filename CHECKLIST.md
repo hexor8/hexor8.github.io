@@ -1,7 +1,48 @@
 # Website Build Checklist
 
-## Versioning (new)
-This folder is now a git repo, used purely as a safety net — every meaningful change gets committed as a checkpoint, so if something breaks or you don't like a change, it can be reverted without losing other progress. You don't need to do anything; just ask if you ever want to "go back" to before a specific change and I'll find the right checkpoint.
+## This is WEBSITE-v2 — a copy, not the original
+Per your request, this round of changes (content system + ribbon) was done in a **new copy** of the site at `C:\Users\pritam\Videos\WEBSITE-v2`, so `C:\Users\pritam\Videos\WEBSITE` (the original) is completely untouched. Git history was carried over into the copy, so all prior checkpoints are still there (`git log` shows the full history back to the very first checkpoint). Once you've looked this over and I'm told to proceed, WEBSITE-v2 can become the "real" one — or we can keep iterating here first. Nothing is deleted either way.
+
+## Versioning
+This folder is a git repo, used purely as a safety net — every meaningful change gets committed as a checkpoint, so if something breaks or you don't like a change, it can be reverted without losing other progress. You don't need to do anything; just ask if you ever want to "go back" to before a specific change and I'll find the right checkpoint.
+
+## NEW: Editable content system
+**Everything you listed — headings, paragraphs, section titles, button text, links, social links, commission info, skill labels, tool descriptions — now lives in one file: `content.js`.**
+
+- Open `content.js` in any text editor. It's organized top-to-bottom exactly like the page, with a comment block explaining the rules (keep quotes, keep commas, copy-paste a block to add a list item, delete a block to remove one).
+- To change ANY text on the site, edit the matching value in `content.js`, save, and refresh the page (via `Start Website.bat`). No HTML/CSS editing needed, and you don't need to ask me to make text changes going forward.
+- Specifically, this is where each thing you asked about lives in `content.js`:
+  - **HERO text** → `hero` section
+  - **About/My Story text** → `myStory` section (this is a brand-new section, see below)
+  - **Work categories** (the Anime Edits / Talking-Head / GFX buttons) → `watchMyStuff.categories`
+  - **YouTube links** → `animeEdits.videos` (just the video ID + title — thumbnail is automatic)
+  - **Talking-Head video** → `talkingHead.videos`
+  - **GFX images** → `gfx.banners.items` and `gfx.thumbnails.items`
+  - **Social links** → `socials.items`
+  - **Commission information** → `commission` (terms, form labels, contact links)
+  - **Tools and skills** → `tools.items`
+
+How it works under the hood (you don't need to touch these, just know they exist): `js/render.js` reads `content.js` and fills in the page at load time. `index.html` now contains the page's structure/design but the actual words and links come from `content.js`. This is why design/animation and content are now separate — editing text never requires touching layout code, and editing layout/design never requires hunting through paragraphs of text.
+
+## NEW: My Story section
+Added between GFX and Tools (per your ribbon diagram). Currently placeholder bio text in `content.js` under `myStory.paragraph` — replace it with your real bio whenever you're ready.
+
+## NEW: Flowing ribbon
+A thin animated line (coral → purple → coral, slowly shimmering) connects Hero → Watch My Stuff → Anime Edits → My Story → Tools as you scroll — it "draws itself in" as you scroll down the page, and reverses if you scroll back up.
+
+- Kept deliberately simple per your past feedback about overly-complex scroll animations: it's one SVG path, driven by a single scroll-position calculation — no pinning, no per-section morphing.
+- **Kept subtle on purpose**: after an initial pass had it cutting across the hero text, I moved it into the left-page margin only (a gentle wave, never crossing into the content column), and lowered its opacity. Verified visually in a live browser — it no longer overlaps any text, image, or card.
+- **Hidden on small screens** (below 720px width) since there isn't enough margin there for it to stay clear of content — rather than risk it overlapping something on mobile, it just doesn't render there.
+- Lives in `js/ribbon.js` (which sections it connects) and the `#ribbonGradient` colors in `index.html` (if you want different colors) — this is animation/design, not content, so it's separate from `content.js` on purpose.
+- **Not verified on an actual narrow/mobile viewport** — the browser automation tool's window resize isn't reflecting in its screenshots in this environment (a recurring limitation, not a code issue), so please double check on your phone that the ribbon is indeed hidden and nothing looks off.
+
+## Verified this round (live in a browser)
+- All content renders identically to before the refactor (visual regression check passed) — nothing broke from moving text into content.js
+- Video lightbox still opens and plays correctly with content pulled from `content.js`
+- Category nav (Anime Edits/Talking-Head/GFX) still highlights the active section and still works as a fixed bar once scrolled past
+- Accordion (commission terms) still opens/closes correctly, now built from `content.js`
+- GFX banners/thumbnails, Tools, Socials all render correctly from `content.js` lists
+- No console errors
 
 
 Living checklist for the site at `C:\Users\pritam\Videos\WEBSITE`. Update as decisions are made.
