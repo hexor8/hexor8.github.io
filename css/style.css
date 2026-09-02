@@ -360,7 +360,7 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .category-nav {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   z-index: 55;
   background: var(--card);
@@ -372,6 +372,10 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
   max-width: 92vw;
   overflow-x: auto;
 }
+@media (max-width: 480px) {
+  .category-nav { gap: 4px; padding: 6px; }
+  .category-nav a { padding: 8px 12px; font-size: 0.82rem; }
+}
 .category-nav.is-fixed {
   position: fixed;
   top: 76px;
@@ -381,6 +385,7 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 }
 #categoryNavSentinel { height: 1px; }
 .category-nav a {
+  flex-shrink: 0;
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 600;
@@ -458,8 +463,8 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 
 .thumb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 22px;
 }
 .thumb-item {
   display: block;
@@ -600,7 +605,33 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 }
 
 /* My Story section */
-.my-story-text { max-width: 640px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+.my-story-text { max-width: 640px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; white-space: pre-line; }
+
+/* How Commissions Work — 4-step process list */
+.process-block { margin-bottom: 40px; text-align: center; }
+.process-heading { font-size: 1.4rem; margin: 0 0 6px; }
+.process-subheading { color: var(--muted); margin: 0 0 24px; }
+.process-steps { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 440px; margin: 0 auto; }
+.process-step {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 22px var(--shadow);
+  width: 100%;
+}
+.process-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+.process-title { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 4px; }
+.process-desc { color: var(--muted); font-size: 0.92rem; }
+.process-arrow { color: var(--muted); font-size: 1.3rem; line-height: 1.4; }
 
 /* Shown only when the page is opened via file:// instead of Start Website.bat */
 .file-protocol-warning {

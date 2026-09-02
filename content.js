@@ -164,9 +164,14 @@ window.SITE_CONTENT = {
   myStory: {
     label: "My Story",
     heading: "My Story",
-    // Replace this with your real bio whenever you're ready — this is
-    // just a placeholder paragraph.
-    paragraph: "Placeholder bio — write a few sentences about who you are, how you got into editing/motion design, and what you're into. This shows up as its own section between GFX and Tools.",
+    // Uses backticks (`) instead of quotes so you can write multiple
+    // paragraphs naturally — just leave a blank line between paragraphs,
+    // same as this one does.
+    paragraph: `I started editing because I liked taking ordinary clips and seeing how far I could push them. What began with experimenting with anime edits gradually turned into a much bigger interest in motion, pacing, design, and visual storytelling.
+
+Since then, I've been learning and experimenting across different styles—from anime edits and talking-head videos to thumbnails, banners, graphics, and motion design. Most of what I know came from curiosity, experimentation, and repeatedly trying to figure out "how the hell did they make that?" 😭
+
+I'm still learning, still experimenting, and still building. This portfolio is basically a collection of that journey so far—and there's a lot more I want to create.`,
   },
 
   // --------------------------------------------------------------------
@@ -216,12 +221,23 @@ window.SITE_CONTENT = {
     heading: "Commission Me",
     paragraph: "Fill out the form below or reach out directly.",
 
+    // The 4-step "how it works" list shown above the terms. Add/remove
+    // steps freely — the arrows between them are automatic.
+    processHeading: "How Commissions Work",
+    processSubheading: "Simple process. Clear communication. No unnecessary bullshit. 😭🔥",
+    process: [
+      { title: "You Reach Out", description: "Tell me what you need." },
+      { title: "We Discuss The Project", description: "Style, references, timeline and pricing." },
+      { title: "I Make The Thing", description: "You'll receive progress updates when appropriate." },
+      { title: "Final Delivery", description: "The project is delivered after everything is agreed upon." },
+    ],
+
     // Each of these becomes a click-to-expand row. Add/remove/edit freely.
     terms: [
-      { question: "Payment", answer: "Placeholder: e.g. 50% upfront, 50% on delivery. Payment methods accepted: TBD." },
-      { question: "Revisions", answer: "Placeholder: number of free revisions included, extra revisions billed at $TBD each." },
-      { question: "Turnaround Time", answer: "Placeholder: estimated delivery windows, rush order policy TBD." },
-      { question: "Usage Rights", answer: "Placeholder: what the client can/can't do with the finished work." },
+      { question: "Payment", answer: "Payment terms are discussed before work begins. For larger projects, an upfront payment may be required before I start. The remaining amount is paid upon completion, depending on the project and agreement. Payment method and final pricing will be discussed before the project begins." },
+      { question: "Revisions", answer: "Major changes that significantly change the original direction may require additional time or cost. Please provide clear feedback and references so we can keep the process smooth." },
+      { question: "Turnaround Time", answer: "Turnaround time depends on the type and complexity of the project. Before starting, I'll discuss the expected timeline with you. Please allow additional time for revisions or larger projects." },
+      { question: "Usage Rights", answer: "The final work is created for the agreed project and intended use. Please discuss any commercial, promotional, or large-scale usage before the project begins. I may showcase completed work in my portfolio or on social media unless otherwise agreed." },
     ],
 
     form: {

@@ -9,6 +9,13 @@ Per your request, this round of changes (content system + ribbon) was done in a 
 - **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
 - **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
 
+## Mobile nav bug, thumbnails, real content (latest)
+- **Mobile category-nav wrapping** → fixed. It was using `flex-wrap: wrap`, which on narrow screens caused the 3 buttons to break onto two lines (matching the screenshot you sent). Changed to `flex-wrap: nowrap` with `flex-shrink: 0` on each button and horizontal scroll as a fallback — it now stays one row exactly like desktop, same as the "how I want it" screenshot. **Not visually re-verified this round** — the browser automation tool was disconnected for this whole batch of fixes, so I syntax-checked everything and reasoned through the CSS carefully, but please actually check this one on your phone since it was the reported bug.
+- **Thumbnails scaled up** → grid columns went from a 220px minimum to 340px, and switched to `auto-fit` so fewer, bigger thumbnails per row instead of 8 tiny ones crammed in.
+- **My Story** → your real bio is in now (`content.js` → `myStory.paragraph`), written as a template string so paragraph breaks work naturally.
+- **Commission terms** → your real Payment/Revisions/Turnaround/Usage Rights text is in.
+- **New "How Commissions Work" section** → added above the terms accordion in Hire Me: your 4-step process (You Reach Out → We Discuss The Project → I Make The Thing → Final Delivery) with arrows between steps, title, and subheading. Content lives in `content.js` → `commission.process`, `processHeading`, `processSubheading`.
+
 ## Versioning
 This folder is a git repo, used purely as a safety net — every meaningful change gets committed as a checkpoint, so if something breaks or you don't like a change, it can be reverted without losing other progress. You don't need to do anything; just ask if you ever want to "go back" to before a specific change and I'll find the right checkpoint.
 

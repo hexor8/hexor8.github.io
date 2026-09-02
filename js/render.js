@@ -159,6 +159,19 @@
     grid.innerHTML = html;
   }
 
+  function buildCommissionProcess() {
+    const wrap = document.getElementById('commissionProcess');
+    if (!wrap) return;
+    const steps = SITE.commission.process;
+    wrap.innerHTML = steps.map((step, i) => `
+      <div class="process-step">
+        <div class="process-num">${i + 1}</div>
+        <div class="process-title">${escapeHtml(step.title)}</div>
+        <div class="process-desc">${escapeHtml(step.description)}</div>
+      </div>
+      ${i < steps.length - 1 ? '<div class="process-arrow">↓</div>' : ''}`).join('');
+  }
+
   function buildCommissionTerms() {
     const wrap = document.getElementById('commissionTerms');
     if (!wrap) return;
@@ -195,6 +208,7 @@
   buildGfx();
   buildTools();
   buildSocials();
+  buildCommissionProcess();
   buildCommissionTerms();
   buildCommissionFormOptions();
   buildCommissionContactLinks();
