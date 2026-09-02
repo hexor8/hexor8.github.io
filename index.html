@@ -83,57 +83,55 @@
     <h2 class="section-title">Anime Edits</h2>
     <p class="section-sub">Anime edits from my YouTube channel.</p>
     <div class="media-grid">
-      <!-- Real thumbnail + link to YouTube (not an <iframe> embed) — this is deliberate:
-           the YouTube iframe player throws "Error 153" when the page is opened as a
-           file:// (double-clicked) instead of served over http(s), because the embed
-           player rejects the file:// origin. A thumbnail + link works everywhere,
-           regardless of how the page is opened.
-           To add more later: copy one <a class="media-card"> block, swap the video ID
-           in both the thumbnail URL and the href, and update the caption. -->
-      <a class="media-card" href="https://www.youtube.com/watch?v=qrsYoF5Jc30" target="_blank" rel="noopener">
+      <!-- Click plays inline in the lightbox (no page navigation). Requires the site to be
+           opened via "Start Website.bat" (or any local server) rather than double-clicking
+           index.html — YouTube's embed player rejects a file:// origin. See fileProtocolWarning.
+           To add more later: copy one <button class="media-card"> block and swap the video ID
+           in the thumbnail URL and data-lightbox-video, then update the caption. -->
+      <button type="button" class="media-card" data-lightbox-video="qrsYoF5Jc30">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/qrsYoF5Jc30/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Himouto! Umaru-chan Edit // Mograph</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=e5PxljLup4M" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="e5PxljLup4M">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/e5PxljLup4M/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">TOY-BOX – E.T | Urusei Yatsura Mograph edit</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=rPurzqi0o5Y" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="rPurzqi0o5Y">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/rPurzqi0o5Y/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">LOVE ME HARDER // Violet Evergarden</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=zScqKy7-MB4" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="zScqKy7-MB4">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/zScqKy7-MB4/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Oshi no ko & My Dress Up Darling — Rather Lie</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=UimwnZVS4TQ" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="UimwnZVS4TQ">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/UimwnZVS4TQ/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Arknights Enfield edit // Dancing Nihilist</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=4qrnhV2cNgI" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="4qrnhV2cNgI">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/4qrnhV2cNgI/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Sumi Sakurasawa | Mograph Edit</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=gdacI2X2xB0" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="gdacI2X2xB0">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/gdacI2X2xB0/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Mad Tsai – Boys Beware // Hayuki</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=LiK25yVyXMM" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="LiK25yVyXMM">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/LiK25yVyXMM/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Neon Genesis Evangelion × Serial Experiments Lain — Softcore</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=oYssVWLPUzc" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="oYssVWLPUzc">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/oYssVWLPUzc/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">Columbina // DUMBO - Travis Scott</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=TgU05miaB58" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="TgU05miaB58">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/TgU05miaB58/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">REFLECTIONS - Denji [Chainsaw Man]</div>
-      </a>
-      <a class="media-card" href="https://www.youtube.com/watch?v=U0BdjW1KutY" target="_blank" rel="noopener">
+      </button>
+      <button type="button" class="media-card" data-lightbox-video="U0BdjW1KutY">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/U0BdjW1KutY/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">MC Leren | New Person, Same Old Mistakes</div>
-      </a>
+      </button>
       <div class="media-card add-more-tile">
         <span>+</span>
         <div class="caption">More go here</div>
@@ -317,10 +315,20 @@
   &copy; 2026 HEXOR_8. All rights reserved.
 </footer>
 
-<!-- Fullscreen lightbox for thumbnails/banners -->
+<!-- Fullscreen lightbox for thumbnails/banners/videos -->
 <div class="lightbox-overlay" id="lightboxOverlay">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
   <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-video-wrap" id="lightboxVideoWrap">
+    <iframe id="lightboxVideo" src="" title="Video player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Shown only if this page is opened by double-clicking the file (file://) instead of
+     through Start Website.bat — YouTube's embed player can't play inline in that case. -->
+<div class="file-protocol-warning" id="fileProtocolWarning">
+  Videos need this site running through <strong>Start Website.bat</strong> to play inline — you opened the file directly.
+  <button id="fileProtocolWarningClose" aria-label="Dismiss">✕</button>
 </div>
 
 <script src="js/script.js"></script>

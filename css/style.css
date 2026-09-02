@@ -262,6 +262,15 @@ main { padding: 0 6vw 80px; position: relative; }
   transition: transform 0.2s ease;
 }
 .media-card:hover { transform: translateY(-6px); }
+button.media-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+}
 .media-thumb {
   aspect-ratio: 16/10;
   background: linear-gradient(135deg, var(--rose), var(--coral));
@@ -487,6 +496,17 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
   object-fit: contain;
   border-radius: 10px;
 }
+.lightbox-video-wrap {
+  width: min(92vw, 1100px);
+  aspect-ratio: 16 / 9;
+}
+.lightbox-video-wrap[hidden] { display: none; }
+.lightbox-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
 .lightbox-close {
   position: absolute;
   top: 20px;
@@ -550,3 +570,34 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .social-card-more { color: var(--muted); box-shadow: none; border: 2px dashed #f0d9db; justify-content: center; }
 
 .scraps-section .empty-state { max-width: 480px; }
+
+/* Shown only when the page is opened via file:// instead of Start Website.bat */
+.file-protocol-warning {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%) translateY(140%);
+  z-index: 300;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  max-width: min(90vw, 480px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.25s ease;
+}
+.file-protocol-warning.show { transform: translateX(-50%) translateY(0); }
+.file-protocol-warning button {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex: none;
+  cursor: pointer;
+}
