@@ -35,7 +35,20 @@
     });
     document.querySelectorAll('[data-c-src]').forEach(el => {
       const val = getPath(SITE, el.dataset.cSrc);
-      if (val != null) el.setAttribute('src', val);
+      if (val == null) return;
+      el.setAttribute('src', val);
+      // <video>/<audio> don't reliably pick up a src set after the initial
+      // parse without an explicit reload — <img> doesn't need this. And
+      // calling play() synchronously right after load() races against
+      // load()'s internal reset and silently gets dropped, so wait for
+      // canplay first (safe here since these are always muted background
+      // loops, so autoplay-without-gesture is allowed).
+      if (typeof el.load === 'function') {
+        if (el.hasAttribute('autoplay')) {
+          el.addEventListener('canplay', () => el.play().catch(() => {}), { once: true });
+        }
+        el.load();
+      }
     });
     document.querySelectorAll('[data-c-alt]').forEach(el => {
       const val = getPath(SITE, el.dataset.cAlt);

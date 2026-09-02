@@ -40,10 +40,12 @@ window.SITE_CONTENT = {
     handle: "@hexor_8",
     bannerImage: "assets/images/BANNER/banner_1.jpeg",
     avatarImage: "assets/images/PFP.jpeg",
-    // TEMPORARILY reverted to the old static icon — the new animated
-    // LOGO_WEBPAGE.webp renders as solid black (see chat), waiting on a
-    // working file before swapping this back.
-    iconImage: "assets/images/LOGO%20ANIMATION/MYICONSHIT.png",
+    // Looping logo mark shown next to the site name in the nav. This is an
+    // animated WebP (converted from FINAL RENDER LOGO 2.mp4) rather than a
+    // <video> — Chrome auto-pauses <video> elements rendered this small
+    // (30x30px) as a battery-saving measure, but animated images always
+    // keep looping regardless of size.
+    iconImage: "assets/images/LOGO%20ANIMATION/logo-badge.webp",
   },
 
   nav: {

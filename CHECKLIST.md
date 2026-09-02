@@ -3,6 +3,12 @@
 ## This is WEBSITE-v2 — a copy, not the original
 Per your request, this round of changes (content system + ribbon) was done in a **new copy** of the site at `C:\Users\pritam\Videos\WEBSITE-v2`, so `C:\Users\pritam\Videos\WEBSITE` (the original) is completely untouched. Git history was carried over into the copy, so all prior checkpoints are still there (`git log` shows the full history back to the very first checkpoint). Once you've looked this over and I'm told to proceed, WEBSITE-v2 can become the "real" one — or we can keep iterating here first. Nothing is deleted either way.
 
+## Logo, banner, socials round (latest)
+- **Nav logo** → now your real `FINAL RENDER LOGO 2.mp4`, converted (via ffmpeg) to a small looping animated WebP (`assets/images/LOGO ANIMATION/logo-badge.webp`) rather than played as a `<video>`. Reason: Chrome auto-pauses `<video>` elements that render as small as this 30px nav badge as a battery-saving measure — confirmed this was happening (it played briefly then silently stopped every time), so I converted to an animated image instead, which loops reliably at any size. Verified live: it's genuinely animating frame-to-frame and still going after several seconds.
+- Your other webp (`LOGO_WEBPAGE.webp`) is left in place but unused — I checked it directly in Chrome at full size and it's solid black with only a couple of stray white pixels, not a usable export. Left untouched in case you want to fix/re-export it yourself.
+- **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
+- **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
+
 ## Versioning
 This folder is a git repo, used purely as a safety net — every meaningful change gets committed as a checkpoint, so if something breaks or you don't like a change, it can be reverted without losing other progress. You don't need to do anything; just ask if you ever want to "go back" to before a specific change and I'll find the right checkpoint.
 
