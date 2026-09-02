@@ -40,6 +40,9 @@ window.SITE_CONTENT = {
     handle: "@hexor_8",
     bannerImage: "assets/images/BANNER/banner_1.jpeg",
     avatarImage: "assets/images/PFP.jpeg",
+    // TEMPORARILY reverted to the old static icon — the new animated
+    // LOGO_WEBPAGE.webp renders as solid black (see chat), waiting on a
+    // working file before swapping this back.
     iconImage: "assets/images/LOGO%20ANIMATION/MYICONSHIT.png",
   },
 

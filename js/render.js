@@ -137,13 +137,12 @@
   function buildSocials() {
     const grid = document.getElementById('socialsGrid');
     if (!grid) return;
+    const title = s => `${s.name} — ${s.handle}`;
     let html = SITE.socials.items.map(s => `
-      <a class="social-card" href="${s.url}" target="_blank" rel="noopener">
-        <span class="social-icon">${SOCIAL_ICONS[s.icon] || SOCIAL_ICONS.default}</span>
-        <span class="social-name">${escapeHtml(s.name)}</span>
-        <span class="social-handle">${escapeHtml(s.handle)}</span>
+      <a class="social-icon-btn" href="${s.url}" target="_blank" rel="noopener" title="${escapeHtml(title(s))}" aria-label="${escapeHtml(title(s))}">
+        ${SOCIAL_ICONS[s.icon] || SOCIAL_ICONS.default}
       </a>`).join('');
-    html += `<div class="social-card social-card-more"><span class="social-name">${escapeHtml(SITE.socials.moreSoonLabel)}</span></div>`;
+    html += `<span class="social-more-btn" title="${escapeHtml(SITE.socials.moreSoonLabel)}" aria-label="${escapeHtml(SITE.socials.moreSoonLabel)}">+</span>`;
     grid.innerHTML = html;
   }
 
