@@ -83,18 +83,57 @@
     <h2 class="section-title">Anime Edits</h2>
     <p class="section-sub">Anime edits from my YouTube channel.</p>
     <div class="media-grid">
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/qrsYoF5Jc30" title="Anime Edit 1" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/e5PxljLup4M" title="Anime Edit 2" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/rPurzqi0o5Y" title="Anime Edit 3" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/zScqKy7-MB4" title="Anime Edit 4" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/UimwnZVS4TQ" title="Anime Edit 5" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/4qrnhV2cNgI" title="Anime Edit 6" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/gdacI2X2xB0" title="Anime Edit 7" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/LiK25yVyXMM" title="Anime Edit 8" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/oYssVWLPUzc" title="Anime Edit 9" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/TgU05miaB58" title="Anime Edit 10" loading="lazy" allowfullscreen></iframe></div>
-      <div class="media-card"><iframe src="https://www.youtube.com/embed/U0BdjW1KutY" title="Anime Edit 11" loading="lazy" allowfullscreen></iframe></div>
-      <!-- Add more here later: <div class="media-card"><iframe src="https://www.youtube.com/embed/VIDEO_ID" loading="lazy" allowfullscreen></iframe></div> -->
+      <!-- Real thumbnail + link to YouTube (not an <iframe> embed) — this is deliberate:
+           the YouTube iframe player throws "Error 153" when the page is opened as a
+           file:// (double-clicked) instead of served over http(s), because the embed
+           player rejects the file:// origin. A thumbnail + link works everywhere,
+           regardless of how the page is opened.
+           To add more later: copy one <a class="media-card"> block, swap the video ID
+           in both the thumbnail URL and the href, and update the caption. -->
+      <a class="media-card" href="https://www.youtube.com/watch?v=qrsYoF5Jc30" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/qrsYoF5Jc30/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Himouto! Umaru-chan Edit // Mograph</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=e5PxljLup4M" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/e5PxljLup4M/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">TOY-BOX – E.T | Urusei Yatsura Mograph edit</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=rPurzqi0o5Y" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/rPurzqi0o5Y/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">LOVE ME HARDER // Violet Evergarden</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=zScqKy7-MB4" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/zScqKy7-MB4/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Oshi no ko & My Dress Up Darling — Rather Lie</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=UimwnZVS4TQ" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/UimwnZVS4TQ/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Arknights Enfield edit // Dancing Nihilist</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=4qrnhV2cNgI" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/4qrnhV2cNgI/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Sumi Sakurasawa | Mograph Edit</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=gdacI2X2xB0" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/gdacI2X2xB0/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Mad Tsai – Boys Beware // Hayuki</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=LiK25yVyXMM" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/LiK25yVyXMM/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Neon Genesis Evangelion × Serial Experiments Lain — Softcore</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=oYssVWLPUzc" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/oYssVWLPUzc/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">Columbina // DUMBO - Travis Scott</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=TgU05miaB58" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/TgU05miaB58/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">REFLECTIONS - Denji [Chainsaw Man]</div>
+      </a>
+      <a class="media-card" href="https://www.youtube.com/watch?v=U0BdjW1KutY" target="_blank" rel="noopener">
+        <div class="media-thumb"><img src="https://i.ytimg.com/vi/U0BdjW1KutY/hqdefault.jpg" alt=""><span class="play">▶</span></div>
+        <div class="caption">MC Leren | New Person, Same Old Mistakes</div>
+      </a>
       <div class="media-card add-more-tile">
         <span>+</span>
         <div class="caption">More go here</div>
