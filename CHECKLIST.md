@@ -9,7 +9,24 @@ Per your request, this round of changes (content system + ribbon) was done in a 
 - **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
 - **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
 
-## Nav logo transparency fix (latest, completed)
+## Google Form wired in (latest) — site side done, form content still needs a fix
+Wired the two links you sent into `content.js` under `commission.googleForm` (`url` and `embedUrl`). Verified live: the embed loads with no console errors, and I independently opened the form URL directly (bypassing our site) to confirm it's genuinely public and working — title "Commission Inquiry Form" renders correctly.
+
+**But the form content itself still has the old generic template fields** — this is on the Google Forms side, not something I can fix (I don't have your Google account, and shouldn't). Read the live form directly and got its exact current fields:
+
+1. Full Name ✓
+2. Email Address (not in original spec, but a reasonable extra)
+3. **"What type of commission are you requesting?" — still has the OLD options**: Illustration, Digital Art, Writing, Graphic Design, Logo Design, Software Development, Other. Needs to become: Anime edit, Talking-head video, Thumbnail, Banner, Poster / GFX, Logo animation, Other.
+4. Project description ✓ (matches "project details")
+5. Preferred Deadline (date) — not in original spec, your call whether to keep it
+6. Estimated Budget Range ($ tiers) — not in original spec either; doesn't conflict with "pricing discussed privately" since it's just asking the client's budget, not publishing your prices — your call whether to keep it
+7. Link to references ✓ (matches "reference links")
+
+**Missing from the original 7-field spec**: "Best way to reach you" and "Additional notes" were never added.
+
+Once you fix the dropdown (and optionally add the 2 missing fields), nothing else needs to change on my end — same URL, it'll just show correctly.
+
+## Nav logo transparency fix (completed)
 You were right that the source render likely had transparency — but **MP4 and GIF are both hard format limits that cannot carry it, no matter what codec/settings are used**: MP4/H.264 has no alpha channel at all (industry-wide limitation, not a settings issue), and GIF only supports 1-bit "on/off" transparency (no smooth edges) which would look jagged on a logo like this anyway. That's why every export you gave me came out with a baked-in black background.
 
 **Fix**: used ffmpeg's `colorkey` filter to key out the black (verified first that the background was a perfectly flat, zero-variance black — ideal for clean keying, confirmed via signalstats) and re-encoded as an animated WebP with a real 8-bit alpha channel, which does support smooth, anti-aliased transparency. Verified in an isolated test page that it renders with clean transparent edges and no color fringing on the actual brand coral.

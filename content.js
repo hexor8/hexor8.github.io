@@ -277,8 +277,8 @@ I'm still learning, still experimenting, and still building. This portfolio is b
     //      to the "Responses" tab and click the green Sheets icon.
     // ------------------------------------------------------------------
     googleForm: {
-      url: "PASTE_YOUR_GOOGLE_FORM_LINK_HERE",
-      embedUrl: "PASTE_YOUR_GOOGLE_FORM_EMBED_SRC_HERE",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSeT6V_veZuyhto7naTkHP7_wIu18fw5NrEosifNSbZZ4TgBZA/viewform?usp=header",
+      embedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeT6V_veZuyhto7naTkHP7_wIu18fw5NrEosifNSbZZ4TgBZA/viewform?embedded=true",
       fallbackText: "Having trouble seeing the form? Open it directly:",
       fallbackLinkText: "Open the commission form",
     },
