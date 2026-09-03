@@ -3,9 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEXOR_8</title>
+
+<!-- These SEO/social tags are intentionally hardcoded here rather than
+     driven by content.js: Discord/Twitter/Slack/iMessage link-preview
+     bots and most search crawlers read the raw HTML and do NOT run this
+     site's JavaScript, so anything rendered by render.js (like the rest
+     of the page's text) would be invisible to them. If you rename the
+     brand or swap the domain, update these lines directly. -->
+<title>HEXOR_8 — Anime Edits, Motion Graphics & Video Commissions</title>
+<meta name="description" content="Portfolio and commission page for HEXOR_8 — anime edits, talking-head video editing, thumbnails, banners, and motion graphics. Commissions open.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hexor8.github.io/">
+<meta name="theme-color" content="#ff4d6d">
+<meta name="color-scheme" content="light">
+
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HEXOR_8">
+<meta property="og:title" content="HEXOR_8 — Anime Edits, Motion Graphics & Video Commissions">
+<meta property="og:description" content="Portfolio and commission page for HEXOR_8 — anime edits, talking-head video editing, thumbnails, banners, and motion graphics. Commissions open.">
+<meta property="og:url" content="https://hexor8.github.io/">
+<meta property="og:image" content="https://hexor8.github.io/assets/images/PFP.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HEXOR_8 — Anime Edits, Motion Graphics & Video Commissions">
+<meta name="twitter:description" content="Portfolio and commission page for HEXOR_8 — anime edits, talking-head video editing, thumbnails, banners, and motion graphics.">
+<meta name="twitter:image" content="https://hexor8.github.io/assets/images/PFP.jpeg">
+
 <link rel="icon" href="assets/images/1.ico">
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Structured data: Person (this is an individual freelancer, not a
+     physical business with an address/hours, so Person is the accurate
+     schema.org type — LocalBusiness would be inaccurate markup). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "HEXOR_8",
+      "url": "https://hexor8.github.io/"
+    },
+    {
+      "@type": "Person",
+      "name": "HEXOR_8",
+      "alternateName": "hexor_8",
+      "url": "https://hexor8.github.io/",
+      "image": "https://hexor8.github.io/assets/images/PFP.jpeg",
+      "jobTitle": "Video Editor & Motion Designer",
+      "description": "Anime edits, talking-head video editing, thumbnails, banners, and motion graphics. Open for commissions.",
+      "sameAs": [
+        "https://www.youtube.com/@hexor_8",
+        "https://instagram.com/hexor_8"
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -202,8 +256,16 @@
 
 </main>
 
-<footer data-c="footer.text">
-  © 2026 HEXOR_8. All rights reserved.
+<footer>
+  <nav class="footer-links" aria-label="Site sections">
+    <a href="#top">Home</a>
+    <a href="#anime-edits">Anime Edits</a>
+    <a href="#talking-head">Talking-Head</a>
+    <a href="#gfx">GFX</a>
+    <a href="#my-story">My Story</a>
+    <a href="#hire-me">Hire Me</a>
+  </nav>
+  <p data-c="footer.text">© 2026 HEXOR_8. All rights reserved.</p>
 </footer>
 
 <!-- Fullscreen lightbox for thumbnails/banners/videos -->

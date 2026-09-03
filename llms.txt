@@ -1,0 +1,20 @@
+# HEXOR_8
+
+> Portfolio and commission site for HEXOR_8, an anime edit / motion graphics / video editor. A single scrolling page covering portfolio work and how to commission custom work.
+
+## Sections
+- Hero: introduction and quick links to the portfolio and the commission section
+- Watch My Stuff: entry point to the three portfolio categories below
+- Anime Edits: AMV-style anime edits, linked from the creator's YouTube channel
+- Talking-Head Videos: commentary/talking-head video editing samples
+- GFX: banners/headers and thumbnail design work
+- My Story: background on the creator and how they got into editing
+- Tools: software used (DaVinci Resolve 21, Blender)
+- Find Me: social links (YouTube, Instagram, Discord)
+- Scraps: small bonus section for unfinished experiments
+- Hire Me: how commissions work, pricing terms, and a commission request form
+
+## Contact
+- YouTube: https://www.youtube.com/@hexor_8
+- Instagram: https://instagram.com/hexor_8
+- Discord: https://discord.com/users/hexor_mp4

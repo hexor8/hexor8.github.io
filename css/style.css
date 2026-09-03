@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
+  color-scheme: light;
   --bg: #fdf2f0;
   --card: #ffffff;
   --ink: #241220;
@@ -362,6 +363,15 @@ button.media-card {
 
 /* Footer */
 footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 0.9rem; }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 16px;
+}
+.footer-links a { font-weight: 600; color: var(--ink); }
+.footer-links a:hover { color: var(--coral); }
 
 /* Simple category nav — appears in flow, then switches to a fixed
    bar once scrolled past so it stays available. No scroll-linked
