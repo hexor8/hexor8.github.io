@@ -233,29 +233,40 @@ I'm still learning, still experimenting, and still building. This portfolio is b
     ],
 
     // Each of these becomes a click-to-expand row. Add/remove/edit freely.
-    // Use backticks (`) with a blank line between paragraphs (like Payment
-    // and Usage Rights below) if you want a multi-paragraph answer.
+    // Use backticks (`) with a blank line between paragraphs if you want a
+    // multi-paragraph answer.
     terms: [
-      { question: "Payment", answer: `Payment terms are discussed before work begins.
-For larger projects, an upfront payment may be required before I start. The remaining amount is paid upon completion, depending on the project and agreement.
-
-Payment method and final pricing will be discussed before the project begins.` },
-      { question: "Revisions", answer: "Major changes that significantly change the original direction may require additional time or cost. Please provide clear feedback and references so we can keep the process smooth." },
-      { question: "Turnaround Time", answer: `Turnaround time depends on the type and complexity of the project.
-Before starting, I'll discuss the expected timeline with you. Please allow additional time for revisions or larger projects.` },
-      { question: "Usage Rights", answer: `The final work is created for the agreed project and intended use. Please discuss any commercial, promotional, or large-scale usage before the project begins.
-
-I may showcase completed work in my portfolio or on social media unless otherwise agreed.` },
+      { question: "Payment", answer: "Payment terms are discussed before work begins. For larger projects, an upfront payment may be required. Final pricing and payment arrangements will be agreed upon before the project starts." },
+      { question: "Revisions", answer: "Reasonable revisions are included depending on the project. Major changes that significantly change the original direction may require additional time or cost." },
+      { question: "Turnaround Time", answer: "Turnaround time depends on the type and complexity of the project. The expected timeline will be discussed before starting." },
+      { question: "Usage Rights", answer: "The final work is created for the agreed project and intended use. Commercial or promotional usage should be discussed before the project begins. I may showcase completed work in my portfolio unless otherwise agreed." },
     ],
 
-    form: {
-      nameLabel: "Your name",
-      typeLabel: "What do you need?",
-      typeOptions: ["Anime Edit", "Talking-Head Edit", "GFX (Thumbnail / Banner)", "Custom / Other"],
-      detailsLabel: "Details",
-      detailsPlaceholder: "Describe what you're looking for...",
-      contactLabel: "Best way to reach you (email/Discord)",
-      submitButton: "Send request",
+    // ------------------------------------------------------------------
+    // GOOGLE FORM — the commission request form embedded below.
+    // Submissions go straight to Google (and a Google Sheet, if you
+    // connect one) — nothing touches this site, this repo, or its git
+    // history, so client info never ends up in a public place.
+    //
+    // HOW TO GET THESE TWO URLS, after building the form in Google Forms
+    // (field spec was given to you separately — ask again if you need it
+    // re-sent):
+    //   1. In your form, click "Send" (top right).
+    //   2. Click the "<>" embed tab.
+    //   3. Copy the URL inside the src="..." of the <iframe> shown there
+    //      and paste it below as `embedUrl`.
+    //   4. Click the link tab (🔗) in that same "Send" dialog, copy that
+    //      link, and paste it below as `url` (this is the fallback link
+    //      for anyone whose browser won't show the embed, e.g. some
+    //      in-app browsers).
+    //   5. To collect responses in a spreadsheet: in the form editor, go
+    //      to the "Responses" tab and click the green Sheets icon.
+    // ------------------------------------------------------------------
+    googleForm: {
+      url: "PASTE_YOUR_GOOGLE_FORM_LINK_HERE",
+      embedUrl: "PASTE_YOUR_GOOGLE_FORM_EMBED_SRC_HERE",
+      fallbackText: "Having trouble seeing the form? Open it directly:",
+      fallbackLinkText: "Open the commission form",
     },
 
     // Quick contact links shown below the form.

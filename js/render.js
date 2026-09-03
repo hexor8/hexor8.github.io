@@ -182,10 +182,16 @@
       </div>`).join('');
   }
 
-  function buildCommissionFormOptions() {
-    const select = document.getElementById('type');
-    if (!select) return;
-    select.innerHTML = SITE.commission.form.typeOptions.map(o => `<option>${escapeHtml(o)}</option>`).join('');
+  function checkGoogleFormConfigured() {
+    const gf = SITE.commission.googleForm;
+    const configured = gf && gf.embedUrl && !gf.embedUrl.startsWith('PASTE_');
+    if (configured) return;
+    const embedWrap = document.querySelector('.gform-embed');
+    if (embedWrap) {
+      embedWrap.innerHTML = '<div style="padding:40px 24px;text-align:center;color:var(--muted);">Commission form isn\'t set up yet — add the Google Form URLs in content.js under commission.googleForm.</div>';
+    }
+    const fallback = document.querySelector('.gform-fallback');
+    if (fallback) fallback.style.display = 'none';
   }
 
   function buildCommissionContactLinks() {
@@ -201,6 +207,7 @@
   // category-nav.js / lightbox.js (see the <script> order at the bottom of
   // index.html) so the elements those scripts look for already exist.
   renderSimpleBindings();
+  checkGoogleFormConfigured();
   wireChannelSocials();
   buildCategoryNav();
   buildAnimeEdits();
@@ -210,6 +217,5 @@
   buildSocials();
   buildCommissionProcess();
   buildCommissionTerms();
-  buildCommissionFormOptions();
   buildCommissionContactLinks();
 })();

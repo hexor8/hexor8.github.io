@@ -183,26 +183,17 @@
     <div id="commissionTerms"></div>
 
     <div class="contact-card" style="margin-top:32px;">
-      <form id="commission-form">
-        <div class="form-row">
-          <label for="name" data-c="commission.form.nameLabel">Your name</label>
-          <input type="text" id="name" required>
-        </div>
-        <div class="form-row">
-          <label for="type" data-c="commission.form.typeLabel">What do you need?</label>
-          <!-- Options generated from content.js "commission.form.typeOptions" -->
-          <select id="type"></select>
-        </div>
-        <div class="form-row">
-          <label for="details" data-c="commission.form.detailsLabel">Details</label>
-          <textarea id="details" rows="4" data-c-placeholder="commission.form.detailsPlaceholder" placeholder="Describe what you're looking for..."></textarea>
-        </div>
-        <div class="form-row">
-          <label for="contact" data-c="commission.form.contactLabel">Best way to reach you (email/Discord)</label>
-          <input type="text" id="contact" required>
-        </div>
-        <button type="submit" class="btn btn-primary" data-c="commission.form.submitButton">Send request</button>
-      </form>
+      <!-- Commission request form — a real Google Form embedded via iframe.
+           Submissions go straight to Google (and a Sheet, if connected);
+           nothing here ever touches this site/repo. Edit the URLs in
+           content.js "commission.googleForm" once you've built the form. -->
+      <div class="gform-embed">
+        <iframe id="gformEmbed" data-c-src="commission.googleForm.embedUrl" src="" title="Commission request form" loading="lazy">Loading form…</iframe>
+      </div>
+      <p class="gform-fallback">
+        <span data-c="commission.googleForm.fallbackText">Having trouble seeing the form? Open it directly:</span>
+        <a data-c-href="commission.googleForm.url" data-c="commission.googleForm.fallbackLinkText" href="#" target="_blank" rel="noopener">Open the commission form</a>
+      </p>
 
       <!-- Generated from content.js "commission.contactLinks" by js/render.js -->
       <div class="contact-links" id="commissionContactLinks"></div>

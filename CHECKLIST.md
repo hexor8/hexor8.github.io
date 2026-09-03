@@ -9,7 +9,14 @@ Per your request, this round of changes (content system + ribbon) was done in a 
 - **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
 - **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
 
-## Mobile nav bug, thumbnails, real content (latest)
+## Commission form -> Google Form (latest)
+- Removed the old custom `<form>` (it never went anywhere — just showed an alert). Replaced with an embedded **Google Form** in the same spot, so submissions go straight to Google/a Google Sheet and never touch this site, repo, or git history.
+- **Still needed from you**: build the actual Google Form (exact field spec was given in chat), then paste its embed URL and link into `content.js` under `commission.googleForm` (`embedUrl` and `url`). Until then, the page shows a friendly "form isn't set up yet" message instead of a broken iframe — verified this live.
+- Updated the 4 commission terms (Payment/Revisions/Turnaround Time/Usage Rights) to your latest exact wording.
+- Cleaned up now-dead code: the old alert-on-submit handler in `script.js`, the old `commission.form.*` content fields, and the unused `.form-row` CSS.
+- Verified via the page's DOM directly (not just screenshots, which were glitching this session for an unrelated automation reason) that all 4 terms render exactly right, the process steps are correct, and the form's not-configured fallback state works.
+
+## Mobile nav bug, thumbnails, real content
 - **Mobile category-nav wrapping** → fixed. It was using `flex-wrap: wrap`, which on narrow screens caused the 3 buttons to break onto two lines (matching the screenshot you sent). Changed to `flex-wrap: nowrap` with `flex-shrink: 0` on each button and horizontal scroll as a fallback — it now stays one row exactly like desktop, same as the "how I want it" screenshot. **Not visually re-verified this round** — the browser automation tool was disconnected for this whole batch of fixes, so I syntax-checked everything and reasoned through the CSS carefully, but please actually check this one on your phone since it was the reported bug.
 - **Thumbnails scaled up** → grid columns went from a 220px minimum to 340px, and switched to `auto-fit` so fewer, bigger thumbnails per row instead of 8 tiny ones crammed in.
 - **My Story** → your real bio is in now (`content.js` → `myStory.paragraph`), written as a template string so paragraph breaks work naturally.

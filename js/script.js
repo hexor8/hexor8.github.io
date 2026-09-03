@@ -36,12 +36,3 @@ document.querySelectorAll('.accordion-head').forEach(head => {
     }
   });
 });
-
-// Commission form (placeholder — no backend yet)
-const commissionForm = document.getElementById('commission-form');
-if (commissionForm) {
-  commissionForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thanks! This form isn\'t hooked up to anything yet — for now, please reach out through one of the contact links below.');
-  });
-}
