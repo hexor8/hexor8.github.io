@@ -424,7 +424,7 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
   max-width: 200px;
   object-fit: contain;
   border-radius: 10px;
-  background: #0a0508;
+  background: var(--coral);
   display: block;
 }
 

@@ -51,11 +51,13 @@ window.SITE_CONTENT = {
     handle: "@hexor_8",
     bannerImage: "assets/images/BANNER/banner_1.jpeg",
     avatarImage: "assets/images/PFP.jpeg",
-    // Animated logo-into-signature GIF shown in the top nav bar (replaces
-    // the old separate icon + "HEXOR_8" text). Sits on a small black badge
-    // in the nav since the GIF's own background is solid black, not
-    // transparent.
-    navGif: "assets/images/LOGO%20ANIMATION/WEBSITE_GIF.gif",
+    // Animated logo-into-signature mark shown in the top nav bar (replaces
+    // the old separate icon + "HEXOR_8" text). This is a WebP re-exported
+    // from your FINAL RENDER LOGO 2.mp4 with the black background keyed
+    // out to real transparency (video/GIF formats can't do this — see
+    // CHECKLIST.md for why). The mark itself is white, so it needs a
+    // colored badge behind it to read — sits on a coral badge in the nav.
+    navGif: "assets/images/LOGO%20ANIMATION/logo-badge-transparent.webp",
   },
 
   nav: {

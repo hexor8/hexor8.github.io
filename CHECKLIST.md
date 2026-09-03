@@ -9,7 +9,18 @@ Per your request, this round of changes (content system + ribbon) was done in a 
 - **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
 - **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
 
-## Restructure round: banner grid, GIF logo, section reorder (latest, completed)
+## Nav logo transparency fix (latest, completed)
+You were right that the source render likely had transparency — but **MP4 and GIF are both hard format limits that cannot carry it, no matter what codec/settings are used**: MP4/H.264 has no alpha channel at all (industry-wide limitation, not a settings issue), and GIF only supports 1-bit "on/off" transparency (no smooth edges) which would look jagged on a logo like this anyway. That's why every export you gave me came out with a baked-in black background.
+
+**Fix**: used ffmpeg's `colorkey` filter to key out the black (verified first that the background was a perfectly flat, zero-variance black — ideal for clean keying, confirmed via signalstats) and re-encoded as an animated WebP with a real 8-bit alpha channel, which does support smooth, anti-aliased transparency. Verified in an isolated test page that it renders with clean transparent edges and no color fringing on the actual brand coral.
+
+**Important discovery along the way**: the logo mark itself is pure **white**, not coral — what looked coral before was just the glow blending with the black backdrop. This means it needs a colored (or dark) background to read at all; it'll disappear on white/light backgrounds. Swapped the nav badge from black to coral to match, which also looks more intentional now that the badge follows the logo's real transparent silhouette instead of a hard-edged black box.
+
+**For future exports**: if you (or anyone) re-renders this logo, exporting a **ProRes 4444** or **QuickTime Animation** file with alpha directly from the NLE (DaVinci Resolve supports this), or a PNG sequence with alpha, would preserve transparency natively with no keying needed — ask me if you want to try that route instead of the keying approach.
+
+**Not fully visually confirmed live**: the browser automation tool in this session reports the test tab as `document.hidden: true` (not focused), and Chrome throttles animated image playback on unfocused tabs — so my later checks in the real nav kept showing a static frame while an *isolated* test page (caught right as it loaded, before throttling kicked in) clearly showed multiple distinct animated frames with clean transparency. I'm confident this is a testing-artifact, not a real bug, but you should take a quick look yourself to confirm it animates smoothly in the actual nav.
+
+## Restructure round: banner grid, GIF logo, section reorder
 Checklist for this round, as requested — everything below is done and verified (live in a browser, with DOM-level checks where the screenshot tool itself got flaky):
 
 - [x] GFX Banners & Headers: was 1 huge full-width banner per row — now a 2×2 grid, noticeably smaller, confirmed visually.
