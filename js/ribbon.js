@@ -1,6 +1,8 @@
 /* ============================================================================
    RIBBON — the thin flowing line connecting Hero -> Watch My Stuff ->
-   Anime Edits -> My Story -> Tools as the user scrolls.
+   GFX -> Hire Me -> My Story as the user scrolls (updated to match the
+   current page order: portfolio categories -> commission -> extras ->
+   My Story last).
 
    This is pure animation/design plumbing, not content. To change WHICH
    sections it connects, edit ANCHOR_IDS below (must match real section
@@ -8,7 +10,7 @@
    colors on #ribbonGradient in index.html.
    ============================================================================ */
 (function () {
-  const ANCHOR_IDS = ['hero', 'watch-my-stuff', 'anime-edits', 'my-story', 'tools'];
+  const ANCHOR_IDS = ['hero', 'watch-my-stuff', 'gfx', 'hire-me', 'my-story'];
   // Stays inside the left page margin the whole way down (a gentle wave, not
   // a full-width zigzag) so it never crosses over text, images, or cards.
   const X_PERCENTS = [4, 9, 5, 10, 4];

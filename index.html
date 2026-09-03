@@ -108,9 +108,8 @@
 
 <!-- ===== TOP NAV — labels come from content.js "nav" ===== -->
 <nav class="site-nav">
-  <a href="#top" class="brand">
-    <span class="brand-icon"><img data-c-src="brand.iconImage" src="" alt=""></span>
-    <span data-c="brand.name">HEXOR_8</span><span class="dot">.</span>
+  <a href="#top" class="brand brand-gif">
+    <img data-c-src="brand.navGif" data-c-alt="brand.name" src="" alt="HEXOR_8">
   </a>
   <button class="nav-toggle" aria-label="Toggle menu">☰</button>
   <ul class="nav-links">
@@ -150,21 +149,11 @@
     <div id="categoryNavSentinel"></div>
   </section>
 
-  <!-- ============ ANIME EDITS — edit videos in content.js "animeEdits.videos" ============ -->
-  <section class="section reveal" id="anime-edits">
-    <span class="section-label" data-c="animeEdits.label">Anime Edits</span>
-    <h2 class="section-title" data-c="animeEdits.heading">Anime Edits</h2>
-    <p class="section-sub" data-c="animeEdits.paragraph">Anime edits from my YouTube channel.</p>
-    <!-- Video cards below are generated from content.js by js/render.js.
-         To add a video: add a { id, title } entry to animeEdits.videos
-         in content.js — no HTML editing needed. -->
-    <div class="media-grid" id="animeEditsGrid"></div>
-  </section>
-
-  <!-- ============ TALKING-HEAD VIDEOS — edit in content.js "talkingHead" ============ -->
+  <!-- ============ PROFESSIONAL VIDEO EDITING (was Talking-Head Videos) —
+       edit in content.js "talkingHead" ============ -->
   <section class="section reveal" id="talking-head">
-    <span class="section-label" data-c="talkingHead.label">Talking-Head Videos</span>
-    <h2 class="section-title" data-c="talkingHead.heading">Talking-Head Videos</h2>
+    <span class="section-label" data-c="talkingHead.label">Professional Video Editing</span>
+    <h2 class="section-title" data-c="talkingHead.heading">Professional Video Editing</h2>
     <p class="section-sub" data-c="talkingHead.paragraph">Commentary and talking-head editing.</p>
     <!-- Generated from content.js "talkingHead.videos" by js/render.js -->
     <div class="media-grid" id="talkingHeadGrid"></div>
@@ -188,35 +177,16 @@
     </div>
   </section>
 
-  <!-- ============ MY STORY — edit text in content.js "myStory" ============ -->
-  <section class="section reveal" id="my-story">
-    <span class="section-label" data-c="myStory.label">My Story</span>
-    <h2 class="section-title" data-c="myStory.heading">My Story</h2>
-    <p class="my-story-text" data-c="myStory.paragraph">Placeholder bio.</p>
-  </section>
-
-  <!-- ============ TOOLS — edit list in content.js "tools.items" ============ -->
-  <section class="section reveal" id="tools">
-    <span class="section-label" data-c="tools.label">Tools</span>
-    <h2 class="section-title" data-c="tools.heading">Tools</h2>
-    <!-- Generated from content.js "tools.items" by js/render.js -->
-    <div class="tools-grid" id="toolsGrid"></div>
-  </section>
-
-  <!-- ============ SOCIALS — edit list in content.js "socials.items" ============ -->
-  <section class="section reveal">
-    <span class="section-label" data-c="socials.label">Socials</span>
-    <h2 class="section-title" data-c="socials.heading">Find Me</h2>
-    <!-- Generated from content.js "socials.items" by js/render.js -->
-    <div class="social-grid" id="socialsGrid"></div>
-  </section>
-
-  <!-- ============ SCRAPS — edit text in content.js "scraps" ============ -->
-  <section class="section reveal scraps-section" id="scraps">
-    <span class="section-label" data-c="scraps.label">Scraps</span>
-    <h2 class="section-title" data-c="scraps.heading">Scraps</h2>
-    <p class="section-sub" data-c="scraps.paragraph">Experiments and miscellaneous stuff that didn't become a full project.</p>
-    <div class="empty-state" data-c="scraps.emptyText">Nothing here yet.</div>
+  <!-- ============ EDITS (was Anime Edits) — edit videos in content.js
+       "animeEdits.videos" ============ -->
+  <section class="section reveal" id="anime-edits">
+    <span class="section-label" data-c="animeEdits.label">Edits</span>
+    <h2 class="section-title" data-c="animeEdits.heading">Edits</h2>
+    <p class="section-sub" data-c="animeEdits.paragraph">Anime edits from my YouTube channel.</p>
+    <!-- Video cards below are generated from content.js by js/render.js.
+         To add a video: add a { id, title } entry to animeEdits.videos
+         in content.js — no HTML editing needed. -->
+    <div class="media-grid" id="animeEditsGrid"></div>
   </section>
 
   <!-- ============ COMMISSION / CONTACT — edit in content.js "commission" ============ -->
@@ -254,16 +224,47 @@
     </div>
   </section>
 
+  <!-- ============ SOCIALS — edit list in content.js "socials.items" ============ -->
+  <section class="section reveal">
+    <span class="section-label" data-c="socials.label">Socials</span>
+    <h2 class="section-title" data-c="socials.heading">Find Me</h2>
+    <!-- Generated from content.js "socials.items" by js/render.js -->
+    <div class="social-grid" id="socialsGrid"></div>
+  </section>
+
+  <!-- ============ SCRAPS — edit text in content.js "scraps" ============ -->
+  <section class="section reveal scraps-section" id="scraps">
+    <span class="section-label" data-c="scraps.label">Scraps</span>
+    <h2 class="section-title" data-c="scraps.heading">Scraps</h2>
+    <p class="section-sub" data-c="scraps.paragraph">Experiments and miscellaneous stuff that didn't become a full project.</p>
+    <div class="empty-state" data-c="scraps.emptyText">Nothing here yet.</div>
+  </section>
+
+  <!-- ============ TOOLS — edit list in content.js "tools.items" ============ -->
+  <section class="section reveal" id="tools">
+    <span class="section-label" data-c="tools.label">Tools</span>
+    <h2 class="section-title" data-c="tools.heading">Tools</h2>
+    <!-- Generated from content.js "tools.items" by js/render.js -->
+    <div class="tools-grid" id="toolsGrid"></div>
+  </section>
+
+  <!-- ============ MY STORY — edit text in content.js "myStory" ============ -->
+  <section class="section reveal" id="my-story">
+    <span class="section-label" data-c="myStory.label">My Story</span>
+    <h2 class="section-title" data-c="myStory.heading">My Story</h2>
+    <p class="my-story-text" data-c="myStory.paragraph">Placeholder bio.</p>
+  </section>
+
 </main>
 
 <footer>
   <nav class="footer-links" aria-label="Site sections">
     <a href="#top">Home</a>
-    <a href="#anime-edits">Anime Edits</a>
-    <a href="#talking-head">Talking-Head</a>
+    <a href="#talking-head">Professional Video Editing</a>
     <a href="#gfx">GFX</a>
-    <a href="#my-story">My Story</a>
+    <a href="#anime-edits">Edits</a>
     <a href="#hire-me">Hire Me</a>
+    <a href="#my-story">My Story</a>
   </nav>
   <p data-c="footer.text">© 2026 HEXOR_8. All rights reserved.</p>
 </footer>

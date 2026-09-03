@@ -15,19 +15,30 @@
    - To remove an item, delete its whole { ... } block (and its comma).
    - Save the file and refresh the page (via Start Website.bat) to see it.
 
-   Sections in this file, top to bottom:
-     BRAND & NAV        — site name, top nav labels
-     HERO               — the big intro at the top of the page
-     WATCH MY STUFF      — the intro line above the category buttons
-     ANIME EDITS        — your YouTube video links
-     TALKING HEAD        — the talking-head video section
-     GFX                — banner and thumbnail images
-     MY STORY           — the about-me section
-     TOOLS              — software/skills list
-     SOCIALS            — social media links
-     SCRAPS             — the bonus section near the bottom
-     COMMISSION / HIRE ME — pricing/terms/contact form text
-     FOOTER
+   Sections in this file are listed in the order they're defined below,
+   which is NOT the same as the order they appear on the page anymore —
+   the page order is controlled separately by section order in index.html.
+
+   As of the current page layout, top to bottom, the page actually goes:
+     Hero -> Watch My Stuff (intro) -> Professional Video Editing
+     (data key: talkingHead) -> GFX -> Edits (data key: animeEdits) ->
+     Hire Me (data key: commission) -> Socials (Find Me) -> Scraps ->
+     Tools -> My Story
+
+   Data keys in this file (unchanged even though display names changed,
+   so section ids in index.html don't have to be touched):
+     brand, nav            — site name, top nav labels, nav logo GIF
+     hero                  — the big intro at the top of the page
+     watchMyStuff          — the intro line + buttons above the categories
+     animeEdits            — displays as "Edits" — your YouTube video links
+     talkingHead           — displays as "Professional Video Editing"
+     gfx                   — banner and thumbnail images
+     myStory               — the about-me section
+     tools                 — software/skills list
+     socials               — social media links
+     scraps                — the bonus section
+     commission            — displays as "Hire Me" — pricing/terms/form text
+     footer
    ============================================================================ */
 
 window.SITE_CONTENT = {
@@ -40,12 +51,11 @@ window.SITE_CONTENT = {
     handle: "@hexor_8",
     bannerImage: "assets/images/BANNER/banner_1.jpeg",
     avatarImage: "assets/images/PFP.jpeg",
-    // Looping logo mark shown next to the site name in the nav. This is an
-    // animated WebP (converted from FINAL RENDER LOGO 2.mp4) rather than a
-    // <video> — Chrome auto-pauses <video> elements rendered this small
-    // (30x30px) as a battery-saving measure, but animated images always
-    // keep looping regardless of size.
-    iconImage: "assets/images/LOGO%20ANIMATION/logo-badge.webp",
+    // Animated logo-into-signature GIF shown in the top nav bar (replaces
+    // the old separate icon + "HEXOR_8" text). Sits on a small black badge
+    // in the nav since the GIF's own background is solid black, not
+    // transparent.
+    navGif: "assets/images/LOGO%20ANIMATION/WEBSITE_GIF.gif",
   },
 
   nav: {
@@ -68,31 +78,34 @@ window.SITE_CONTENT = {
   },
 
   // --------------------------------------------------------------------
-  // WATCH MY STUFF — short intro line shown above the Anime Edits /
-  // Talking-Head / GFX buttons
+  // WATCH MY STUFF — short intro line shown above the category buttons.
+  // Order of this list = order the buttons appear in AND (since the nav
+  // just reads this array) the order they highlight while scrolling —
+  // but it does NOT change the order the actual sections appear on the
+  // page. That's controlled by the section order in index.html.
   // --------------------------------------------------------------------
   watchMyStuff: {
     label: "Watch My Stuff",
-    paragraph: "Anime edits, talking-head videos, and GFX.",
+    paragraph: "Professional video editing, GFX, and edits.",
     // These 3 buttons must keep the same "target" values (anime-edits,
     // talking-head, gfx) unless you also rename the matching section ids
     // in index.html — the label is what changes the button text.
     categories: [
-      { label: "Anime Edits", target: "anime-edits" },
-      { label: "Talking-Head", target: "talking-head" },
+      { label: "Professional Video Editing", target: "talking-head" },
       { label: "GFX", target: "gfx" },
+      { label: "Edits", target: "anime-edits" },
     ],
   },
 
   // --------------------------------------------------------------------
-  // ANIME EDITS — your YouTube videos
+  // EDITS (internally still called "animeEdits") — your YouTube videos
   // --------------------------------------------------------------------
   // To add a video: find the video's ID from its YouTube URL —
   // https://youtu.be/THIS_PART_IS_THE_ID — and add a new block below.
   // The thumbnail image is pulled automatically from YouTube using the id.
   animeEdits: {
-    label: "Anime Edits",
-    heading: "Anime Edits",
+    label: "Edits",
+    heading: "Edits",
     paragraph: "Anime edits from my YouTube channel.",
     addMoreLabel: "More go here",
     videos: [
@@ -111,13 +124,13 @@ window.SITE_CONTENT = {
   },
 
   // --------------------------------------------------------------------
-  // TALKING HEAD — the talking-head video section
+  // PROFESSIONAL VIDEO EDITING (internally still called "talkingHead")
   // --------------------------------------------------------------------
   // "src" points to a video file inside assets/videos/. To swap the video,
   // put the new file in that folder and change "src" to its filename.
   talkingHead: {
-    label: "Talking-Head Videos",
-    heading: "Talking-Head Videos",
+    label: "Professional Video Editing",
+    heading: "Professional Video Editing",
     paragraph: "Commentary and talking-head editing.",
     addMoreLabel: "More go here",
     videos: [
@@ -151,7 +164,6 @@ window.SITE_CONTENT = {
         { src: "assets/images/THUMBNAILS/Tadimeline%201_ad01_0ad0_54_08.jpg", alt: "\"HEXOR\" anime edit thumbnail" },
         { src: "assets/images/THUMBNAILS/Tawdimawdeaawdline%201wd_awd0awd1_03_04_09.jpg", alt: "\"DUMBO\" Travis Scott anime edit thumbnail" },
         { src: "assets/images/THUMBNAILS/Timeline%201_01_00_45_10.jpg", alt: "\"Buckshot Fever\" anime edit thumbnail" },
-        { src: "assets/images/THUMBNAILS/Timeline%201_0awd1_00_45_10.jpg", alt: "\"Buckshot Fever\" anime edit thumbnail, alternate version" },
         { src: "assets/images/THUMBNAILS/Timwdeline%201_01_00awdawd_22_09.jpg", alt: "\"How Long\" Charlie Puth anime edit thumbnail" },
         { src: "assets/images/THUMBNAILS/f25c7923-db4c-4cdc-a902-9851927ede61.png", alt: "\"Love Me Harder\" Violet Evergarden anime edit thumbnail" },
       ],
