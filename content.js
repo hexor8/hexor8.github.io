@@ -233,11 +233,19 @@ I'm still learning, still experimenting, and still building. This portfolio is b
     ],
 
     // Each of these becomes a click-to-expand row. Add/remove/edit freely.
+    // Use backticks (`) with a blank line between paragraphs (like Payment
+    // and Usage Rights below) if you want a multi-paragraph answer.
     terms: [
-      { question: "Payment", answer: "Payment terms are discussed before work begins. For larger projects, an upfront payment may be required before I start. The remaining amount is paid upon completion, depending on the project and agreement. Payment method and final pricing will be discussed before the project begins." },
+      { question: "Payment", answer: `Payment terms are discussed before work begins.
+For larger projects, an upfront payment may be required before I start. The remaining amount is paid upon completion, depending on the project and agreement.
+
+Payment method and final pricing will be discussed before the project begins.` },
       { question: "Revisions", answer: "Major changes that significantly change the original direction may require additional time or cost. Please provide clear feedback and references so we can keep the process smooth." },
-      { question: "Turnaround Time", answer: "Turnaround time depends on the type and complexity of the project. Before starting, I'll discuss the expected timeline with you. Please allow additional time for revisions or larger projects." },
-      { question: "Usage Rights", answer: "The final work is created for the agreed project and intended use. Please discuss any commercial, promotional, or large-scale usage before the project begins. I may showcase completed work in my portfolio or on social media unless otherwise agreed." },
+      { question: "Turnaround Time", answer: `Turnaround time depends on the type and complexity of the project.
+Before starting, I'll discuss the expected timeline with you. Please allow additional time for revisions or larger projects.` },
+      { question: "Usage Rights", answer: `The final work is created for the agreed project and intended use. Please discuss any commercial, promotional, or large-scale usage before the project begins.
+
+I may showcase completed work in my portfolio or on social media unless otherwise agreed.` },
     ],
 
     form: {

@@ -327,6 +327,7 @@ button.media-card {
   line-height: 1.6;
 }
 .accordion-item.open .accordion-body { padding-bottom: 20px; }
+.accordion-body p { white-space: pre-line; }
 
 /* Contact / commission form */
 .contact-card {
