@@ -9,7 +9,29 @@ Per your request, this round of changes (content system + ribbon) was done in a 
 - **Banner cropping** → fixed by matching the CSS aspect ratio to the banner image's exact pixel dimensions (7680×1267) instead of an approximate one with a height cap. No more cropping at any screen width.
 - **Socials** → restyled to a compact row of icon-only circles (name + handle now show as a tooltip on hover instead of always-visible text). I inferred this was "how they looked previously" based on the very first design (checked git history — the card style had actually been unchanged since the first checkpoint, so this must mean something further back) — flag it if that's not the look you meant.
 
-## Commission form -> Google Form (latest)
+## SEO / production hardening pass (latest, completed)
+Verified live in a fresh browser after finishing — no console errors, exact color match confirmed, all values spot-checked via the DOM (see below).
+
+**Done:**
+- Real, unique alt text on all 8 GFX thumbnails (was generic "Thumbnail" on every one) — identified each by actually viewing the images.
+- `<head>`: unique descriptive title, meta description, `robots` meta, canonical link, Open Graph + Twitter Card tags (for link previews in Discord/iMessage/Slack/etc.), JSON-LD structured data. These are hardcoded directly in `index.html` rather than driven by `content.js` **on purpose** — link-preview bots and some crawlers read raw HTML without running this site's JavaScript, so anything only set by `render.js` would be invisible to them. If you rename the brand or get a custom domain, these need a manual update (or ask me).
+- `sitemap.xml`, `robots.txt`, `llms.txt` at the project root.
+- Custom `404.html`, styled to match the site, using root-relative paths so it works regardless of what URL depth triggered it (GitHub Pages serves this automatically for any unmatched path).
+- Footer internal-links row (Home / Anime Edits / Talking-Head / GFX / My Story / Hire Me).
+- Fixed a real bug found via live testing: the site had no `color-scheme` declared, so browsers with system dark mode on could auto-invert the whole page to a broken-looking dark palette that didn't match any of the actual CSS. Added `color-scheme: light` (both as a meta tag and in CSS) — confirmed via computed styles that the page now renders at the exact intended color (`#fdf2f0`) regardless of system theme.
+
+**Items from the original ask that don't actually fit this project** (explained rather than forced):
+- *"Make sure the tab doesn't say Vite or React"* — this was never applicable; the site has zero build tooling, it's hand-written HTML/CSS/JS. Confirmed via search: no Vite/React/webpack references anywhere.
+- *"Remove production source maps"* / *"reduce huge JavaScript"* — nothing to remove; there's no bundler or source maps, and the combined custom JS across all 5 scripts is under 20KB total (`content.js`, which is your editable content, isn't code).
+- *Local business schema* — used `Person` schema instead. HEXOR_8 is an individual freelancer with no physical address or business hours, so `LocalBusiness` markup would be inaccurate — Google's own structured data guidelines call this out as markup that shouldn't be added if it doesn't reflect reality.
+- *Breadcrumbs* — these represent a page's position in a multi-page hierarchy. This is a genuinely single-page site (by explicit earlier requirement), so there isn't a real hierarchy to reflect. Real internal navigation already exists via the nav bar, category nav, and the new footer links.
+- *Custom domain* — still needs you to actually purchase one (I can't make purchases); the canonical/OG URLs currently point at `https://hexor8.github.io/`, which is also not live right now since that repo was deleted earlier in this project's history. Once you redeploy (and/or get a domain), tell me the URL and I'll update the hardcoded tags above.
+
+**Still open:**
+- [ ] `commission.contactLinks` still has a placeholder `mailto:hello@example.com` — needs your real email, or say the word and I'll drop the Email option until you have one.
+- [ ] Redeploy to GitHub Pages (or wherever) whenever you're ready — the site currently only exists locally.
+
+## Commission form -> Google Form
 - Removed the old custom `<form>` (it never went anywhere — just showed an alert). Replaced with an embedded **Google Form** in the same spot, so submissions go straight to Google/a Google Sheet and never touch this site, repo, or git history.
 - **Still needed from you**: build the actual Google Form (exact field spec was given in chat), then paste its embed URL and link into `content.js` under `commission.googleForm` (`embedUrl` and `url`). Until then, the page shows a friendly "form isn't set up yet" message instead of a broken iframe — verified this live.
 - Updated the 4 commission terms (Payment/Revisions/Turnaround Time/Usage Rights) to your latest exact wording.
