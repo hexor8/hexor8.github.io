@@ -131,8 +131,14 @@
       <p class="section-sub" style="margin:10px auto 0;" data-c="watchMyStuff.paragraph">Anime edits, talking-head videos, and GFX.</p>
     </div>
     <!-- Buttons below are generated from content.json by js/render.js -->
-    <nav class="category-nav" id="categoryNav" aria-label="Portfolio categories"></nav>
+    <!-- Sentinel sits BEFORE the nav on purpose: once the nav goes
+         position:fixed it leaves normal flow, which would shift anything
+         placed after it (this sentinel included) back into view and
+         immediately un-fix it again — an infinite fixed/unfixed flicker.
+         Placed before the nav, the sentinel's position is unaffected by
+         whether the nav itself is fixed. -->
     <div id="categoryNavSentinel"></div>
+    <nav class="category-nav" id="categoryNav" aria-label="Portfolio categories"></nav>
   </section>
 
   <div class="section-divider" aria-hidden="true"></div>
