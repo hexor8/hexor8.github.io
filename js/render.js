@@ -239,15 +239,23 @@
   // heading plus either real item cards or a "Coming Soon" placeholder.
   function shopCategoryHtml(cat) {
     const itemsHtml = cat.items.length
-      ? cat.items.map((item, i) => `
+      ? cat.items.map((item, i) => {
+          // A same-origin asset (assets/...) triggers a real browser download
+          // via the `download` attribute. An external link (e.g. Google
+          // Drive) can't do that cross-origin anyway, so it just opens the
+          // file's Drive page in a new tab instead — which is the point.
+          const isExternal = /^https?:\/\//.test(item.fileUrl);
+          const downloadAttrs = isExternal ? 'target="_blank" rel="noopener"' : 'download';
+          return `
         <div class="shop-item${i >= GRID_VISIBLE_LIMIT ? ' extra-item hidden-extra' : ''}">
           <div class="shop-item-name">${escapeHtml(item.name)}</div>
           <p class="shop-item-desc">${escapeHtml(item.description)}</p>
           <div class="shop-item-actions">
-            <a class="btn btn-primary" href="${escapeHtml(item.fileUrl)}" download>Download — ${escapeHtml(item.price)}</a>
+            <a class="btn btn-primary" href="${escapeHtml(item.fileUrl)}" ${downloadAttrs}>Download — ${escapeHtml(item.price)}</a>
             ${item.videoUrl ? `<a class="btn btn-outline" href="${escapeHtml(item.videoUrl)}" target="_blank" rel="noopener">Watch the Edit</a>` : ''}
           </div>
-        </div>`).join('')
+        </div>`;
+        }).join('')
       : '<div class="shop-item shop-item-empty">Coming Soon</div>';
     return `
       <div class="shop-category">
