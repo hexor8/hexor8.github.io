@@ -140,8 +140,12 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 .brand .dot { color: var(--coral); }
+/* Hidden (not removed — keeps the hamburger where it is) while the
+   channel header above is still showing its own big name (see script.js). */
+.brand.brand-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
 .nav-links { display: flex; gap: 8px; align-items: center; }
 

@@ -6,6 +6,18 @@ if (navToggle) {
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 }
 
+// The sticky nav's name/logo only shows once the channel header (which
+// already shows the name big) has scrolled out of view — otherwise the
+// name appears twice, stacked right on top of each other.
+const channelBar = document.querySelector('.channel-bar');
+const navBrand = document.querySelector('.site-nav .brand');
+if (channelBar && navBrand) {
+  const brandIO = new IntersectionObserver(([entry]) => {
+    navBrand.classList.toggle('brand-hidden', entry.isIntersecting);
+  }, { threshold: 0 });
+  brandIO.observe(channelBar);
+}
+
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
