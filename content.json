@@ -256,6 +256,17 @@
     "freeHeading": "Free Downloads",
     "freeCategories": [
       {
+        "label": "Apps",
+        "items": [
+          {
+            "name": "PHASE — AI Upscaling + Frame Interpolation",
+            "description": "A Windows AI video-processing tool for fast, simple enhancement workflows. Combines Real-CUGAN AI upscaling with RIFE frame interpolation to increase resolution, frame rate, or both in one pass — plus CLIP resolution control, batch rendering, multiple codecs/containers, audio options, render monitoring, and a simple GUI.",
+            "fileUrl": "https://drive.google.com/drive/folders/1rpgWhzXeLBc3pCRG94dUKP8Y-jqvSIH3",
+            "price": "Free"
+          }
+        ]
+      },
+      {
         "label": "Macros",
         "items": [
           {
