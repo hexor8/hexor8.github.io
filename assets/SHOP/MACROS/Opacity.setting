@@ -1,0 +1,39 @@
+{
+	Tools = ordered() {
+		Opacity = MacroOperator {
+			CtrlWZoom = false,
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "BrightnessContrast4",
+					Source = "Input",
+				},
+				BrightnessContrast4_Gain = InstanceInput {
+					SourceOp = "BrightnessContrast4",
+					Source = "Gain",
+					Page = "Controls",
+					Name = "Opacity",
+					MaxScale = 1,
+					Default = 1,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "BrightnessContrast4",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				BrightnessContrast4 = BrightnessContrast {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						Alpha = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -330, -181.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "Opacity"
+}

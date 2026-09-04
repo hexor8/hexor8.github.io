@@ -1,0 +1,505 @@
+{
+  "brand": {
+    "name": "HEXOR_8",
+    "handle": "@hexor_8",
+    "bannerImage": "assets/images/BANNER/banner_1.jpeg",
+    "avatarImage": "assets/images/PFP.jpeg",
+    "iconImage": "assets/images/LOGO%20ANIMATION/MYICONSHIT.png"
+  },
+  "nav": {
+    "home": "Home",
+    "watchMyStuff": "Watch My Stuff",
+    "hireMe": "Hire Me",
+    "shop": "Shop"
+  },
+  "hero": {
+    "badge": "welcome!",
+    "headingBeforeName": "Hey, I'm ",
+    "headingName": "HEXOR_8",
+    "primaryButton": "Watch My Stuff",
+    "secondaryButton": "Hire Me",
+    "portraitImage": "assets/images/PFP.jpeg",
+    "experience": "2 years of experience",
+    "skillsLabel": "Skills",
+    "skills": [
+      "Video Editing",
+      "Motion Graphics",
+      "Anime Edits",
+      "Thumbnail Design",
+      "Banner Design",
+      "Logo Animation",
+      "Sound Design",
+      "Colour Grading"
+    ]
+  },
+  "watchMyStuff": {
+    "label": "Watch My Stuff",
+    "paragraph": "Professional video editing, GFX, and edits.",
+    "categories": [
+      {
+        "label": "Professional Video Editing",
+        "target": "talking-head"
+      },
+      {
+        "label": "GFX",
+        "target": "gfx"
+      },
+      {
+        "label": "Edits",
+        "target": "anime-edits"
+      }
+    ]
+  },
+  "animeEdits": {
+    "label": "Edits",
+    "heading": "Edits",
+    "paragraph": "Anime edits from my YouTube channel.",
+    "videos": [
+      {
+        "id": "qrsYoF5Jc30",
+        "title": "Himouto! Umaru-chan Edit // Mograph"
+      },
+      {
+        "id": "e5PxljLup4M",
+        "title": "TOY-BOX – E.T | Urusei Yatsura Mograph edit"
+      },
+      {
+        "id": "rPurzqi0o5Y",
+        "title": "LOVE ME HARDER // Violet Evergarden"
+      },
+      {
+        "id": "zScqKy7-MB4",
+        "title": "Oshi no ko & My Dress Up Darling — Rather Lie"
+      },
+      {
+        "id": "UimwnZVS4TQ",
+        "title": "Arknights Enfield edit // Dancing Nihilist"
+      },
+      {
+        "id": "4qrnhV2cNgI",
+        "title": "Sumi Sakurasawa | Mograph Edit"
+      },
+      {
+        "id": "gdacI2X2xB0",
+        "title": "Mad Tsai – Boys Beware // Hayuki"
+      },
+      {
+        "id": "LiK25yVyXMM",
+        "title": "Neon Genesis Evangelion × Serial Experiments Lain — Softcore"
+      },
+      {
+        "id": "oYssVWLPUzc",
+        "title": "Columbina // DUMBO - Travis Scott"
+      },
+      {
+        "id": "TgU05miaB58",
+        "title": "REFLECTIONS - Denji [Chainsaw Man]"
+      },
+      {
+        "id": "U0BdjW1KutY",
+        "title": "MC Leren | New Person, Same Old Mistakes"
+      }
+    ]
+  },
+  "talkingHead": {
+    "label": "Professional Video Editing",
+    "heading": "Professional Video Editing",
+    "paragraph": "Commentary and talking-head editing.",
+    "sampleWorkLabel": "Sample Work",
+    "sampleWorkTags": [
+      "Colour Grading",
+      "Sound Design",
+      "B-Rolls",
+      "Pacing",
+      "Animations",
+      "and more"
+    ],
+    "description": "This work is here to show what I can do with raw footage — colour, sound, pacing, and structure — start to finish. You can trust your project with me.",
+    "videos": [
+      {
+        "src": "assets/videos/trial-render.mp4",
+        "title": "Trial Render",
+        "caption": "Graded · 2026"
+      }
+    ]
+  },
+  "gfx": {
+    "label": "GFX",
+    "heading": "GFX",
+    "banners": {
+      "heading": "Banners & Headers",
+      "items": [
+        {
+          "src": "assets/images/BANNER/banner_1.jpeg",
+          "alt": "HEXOR_8 channel banner"
+        },
+        {
+          "src": "assets/images/BANNER/BANNER_3.jpeg",
+          "alt": "HEXOR banner design, orange theme"
+        },
+        {
+          "src": "assets/images/BANNER/BANNER_4.png",
+          "alt": "HEXOR banner design, gold theme"
+        },
+        {
+          "src": "assets/images/BANNER/COLUMBIA%20BANNER.jpg",
+          "alt": "HEXOR banner design, purple theme"
+        }
+      ]
+    },
+    "thumbnails": {
+      "heading": "Thumbnails",
+      "items": [
+        {
+          "src": "assets/images/THUMBNAILS/THUMBNIAL_1.jpeg",
+          "alt": "\"I Like The Way You Kiss Me\" anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/THUMBNIAL_2.jpeg",
+          "alt": "\"TOY-BOX – E.T\" Urusei Yatsura anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/Tadimeline%201_ad01_0ad0_54_08.jpg",
+          "alt": "\"HEXOR\" anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/Tawdimawdeaawdline%201wd_awd0awd1_03_04_09.jpg",
+          "alt": "\"DUMBO\" Travis Scott anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/Timeline%201_01_00_45_10.jpg",
+          "alt": "\"Buckshot Fever\" anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/Timwdeline%201_01_00awdawd_22_09.jpg",
+          "alt": "\"How Long\" Charlie Puth anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/f25c7923-db4c-4cdc-a902-9851927ede61.png",
+          "alt": "\"Love Me Harder\" Violet Evergarden anime edit thumbnail"
+        },
+        {
+          "src": "assets/images/THUMBNAILS/bitch%20adds%20.jpg",
+          "alt": "\"Custom Banner in DaVinci Resolve\" tutorial thumbnail — Free PF"
+        }
+      ]
+    }
+  },
+  "aboutMe": {
+    "label": "About Me",
+    "heading": "About Me"
+  },
+  "myStory": {
+    "heading": "My Story",
+    "paragraph": "I started editing because I liked taking ordinary clips and seeing how far I could push them. What began with experimenting with anime edits gradually turned into a much bigger interest in motion, pacing, design, and visual storytelling.\n\nSince then, I've been learning and experimenting across different styles—from anime edits and talking-head videos to thumbnails, banners, graphics, and motion design. Most of what I know came from curiosity, experimentation, and repeatedly trying to figure out \"how the hell did they make that?\" 😭\n\nI'm still learning, still experimenting, and still building. This portfolio is basically a collection of that journey so far—and there's a lot more I want to create."
+  },
+  "tools": {
+    "label": "Tools",
+    "heading": "Tools",
+    "items": [
+      {
+        "icon": "🎛",
+        "name": "DaVinci Resolve 21",
+        "desc": "Editing · Fusion · Color · Audio"
+      },
+      {
+        "icon": "🧊",
+        "name": "Blender",
+        "desc": "3D · Modeling · Animation"
+      },
+      {
+        "icon": "🎨",
+        "name": "Figma",
+        "desc": "UI · Layout · Design"
+      },
+      {
+        "icon": "🖌",
+        "name": "Affinity",
+        "desc": "Graphic Design"
+      },
+      {
+        "icon": "🖍",
+        "name": "Krita",
+        "desc": "Digital Art"
+      }
+    ]
+  },
+  "socials": {
+    "label": "Socials",
+    "heading": "Find Me",
+    "moreSoonLabel": "More soon",
+    "items": [
+      {
+        "icon": "youtube",
+        "name": "YouTube",
+        "handle": "@hexor_8",
+        "url": "https://www.youtube.com/@hexor_8"
+      },
+      {
+        "icon": "instagram",
+        "name": "Instagram",
+        "handle": "@hexor_8",
+        "url": "https://instagram.com/hexor_8"
+      },
+      {
+        "icon": "discord",
+        "name": "Discord",
+        "handle": "@hexor_mp4",
+        "url": "https://discord.com/users/hexor_mp4"
+      }
+    ]
+  },
+  "shop": {
+    "label": "Shop",
+    "heading": "Shop",
+    "paragraph": "Free downloads for editors. Paid products are coming soon.",
+    "freeHeading": "Free Downloads",
+    "freeCategories": [
+      {
+        "label": "Macros",
+        "items": [
+          {
+            "name": "Opacity Macro",
+            "description": "A DaVinci Resolve macro that controls the opacity of whatever sits before it in the stack — turn it down to make that layer transparent.",
+            "fileUrl": "assets/SHOP/MACROS/Opacity.setting",
+            "price": "Free"
+          }
+        ]
+      },
+      {
+        "label": "PowerGrades",
+        "items": []
+      },
+      {
+        "label": "Assets",
+        "items": []
+      },
+      {
+        "label": "Project Files",
+        "items": [
+          {
+            "name": "TOY-BOX – E.T | Urusei Yatsura Mograph Edit — Project File",
+            "description": "The full project file behind this edit.",
+            "fileUrl": "assets/SHOP/PFS/IDKKMS-20260904T015755Z-1-001.zip",
+            "videoUrl": "https://www.youtube.com/watch?v=e5PxljLup4M",
+            "price": "Free"
+          },
+          {
+            "name": "Himouto! Umaru-chan Edit // Mograph — Project File",
+            "description": "The full project file behind this edit.",
+            "fileUrl": "assets/SHOP/PFS/UMARU%20CHAN.zip",
+            "videoUrl": "https://www.youtube.com/watch?v=qrsYoF5Jc30",
+            "price": "Free"
+          }
+        ]
+      },
+      {
+        "label": "Other Free Stuff",
+        "items": []
+      }
+    ],
+    "paidHeading": "Paid Products",
+    "paidComingSoonText": "Nothing for sale yet — check back soon.",
+    "paidCategories": [
+      "Macros",
+      "PowerGrades",
+      "Assets",
+      "Other Products"
+    ]
+  },
+  "scraps": {
+    "label": "Scraps",
+    "heading": "Scraps",
+    "paragraph": "Experiments and miscellaneous stuff that didn't become a full project.",
+    "emptyText": "Nothing here yet."
+  },
+  "commission": {
+    "label": "Hire Me",
+    "heading": "Commission Me",
+    "paragraph": "Fill out the form below or reach out directly.",
+    "processHeading": "How Commissions Work",
+    "processSubheading": "Simple process. Clear communication. No unnecessary bullshit. 😭🔥",
+    "process": [
+      {
+        "title": "You Reach Out",
+        "description": "Tell me what you need."
+      },
+      {
+        "title": "We Discuss The Project",
+        "description": "Style, references, timeline and pricing."
+      },
+      {
+        "title": "I Make The Thing",
+        "description": "You'll receive progress updates when appropriate."
+      },
+      {
+        "title": "Final Delivery",
+        "description": "The project is delivered after everything is agreed upon."
+      }
+    ],
+    "termsToggleLabel": "Payment, Revisions, Turnaround & Usage Rights",
+    "wannaKnowMoreLabel": "Wanna know more?",
+    "terms": [
+      {
+        "question": "Payment",
+        "answer": "Payment terms are discussed before work begins. For larger projects, an upfront payment may be required. Final pricing and payment arrangements will be agreed upon before the project starts."
+      },
+      {
+        "question": "Revisions",
+        "answer": "Reasonable revisions are included depending on the project. Major changes that significantly change the original direction may require additional time or cost."
+      },
+      {
+        "question": "Turnaround Time",
+        "answer": "Turnaround time depends on the type and complexity of the project. The expected timeline will be discussed before starting."
+      },
+      {
+        "question": "Usage Rights",
+        "answer": "The final work is created for the agreed project and intended use. Commercial or promotional usage should be discussed before the project begins. I may showcase completed work in my portfolio unless otherwise agreed."
+      }
+    ],
+    "yourProcessHeading": "Your Process",
+    "yourProcess": [
+      {
+        "title": "Send Your Idea",
+        "description": "Reach out and tell me what you're thinking."
+      },
+      {
+        "title": "Discuss Details & References",
+        "description": "We go over style, references, and expectations together."
+      },
+      {
+        "title": "Confirm Price & Deadline",
+        "description": "Pricing and timeline get locked in before work starts."
+      },
+      {
+        "title": "Editing & Progress Updates",
+        "description": "You'll get updates as the project comes together."
+      },
+      {
+        "title": "Revisions",
+        "description": "Feedback gets applied within the agreed revision scope."
+      },
+      {
+        "title": "Final Delivery",
+        "description": "The finished project is delivered once everything's approved."
+      }
+    ],
+    "customForm": {
+      "action": "https://docs.google.com/forms/d/e/1FAIpQLSeT6V_veZuyhto7naTkHP7_wIu18fw5NrEosifNSbZZ4TgBZA/formResponse",
+      "successMessage": "Sent! I'll get back to you soon. 🎉",
+      "fields": {
+        "name": "entry.1444795928",
+        "contactMethod": "entry.2301988",
+        "workType": "entry.1253733046",
+        "description": "entry.2112613882",
+        "deadline": "entry.127487882",
+        "budget": "entry.1211648032",
+        "references": "entry.197757904"
+      },
+      "workTypeOptions": [
+        "Professional yalking head videos",
+        "Thumbnail",
+        "Banner",
+        "Edits",
+        "Logo Design and animation",
+        "Other"
+      ]
+    },
+    "googleForm": {
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeT6V_veZuyhto7naTkHP7_wIu18fw5NrEosifNSbZZ4TgBZA/viewform?usp=header",
+      "fallbackText": "Having trouble sending this? Open the form directly:",
+      "fallbackLinkText": "Open the commission form"
+    },
+    "contactLinks": [
+      {
+        "label": "Email",
+        "url": "mailto:hello@example.com"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/users/hexor_mp4"
+      },
+      {
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@hexor_8"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://instagram.com/hexor_8"
+      }
+    ]
+  },
+  "legal": {
+    "disclaimer": "General information only — not legal advice.",
+    "readMoreLabel": "Read Full Policy",
+    "downloadLabel": "Download (.txt)",
+    "termsHeading": "Terms & Conditions",
+    "termsIntro": "These terms apply to the use of the HEXOR_8 website, portfolio, downloads, and services.",
+    "termsSections": [
+      {
+        "heading": "Portfolio Content",
+        "text": "All portfolio work, previews, branding, graphics, videos, and animations shown on this site remain the property of HEXOR_8 or their respective owners, unless otherwise stated. You may not copy, repost, claim, or use portfolio work commercially without permission."
+      },
+      {
+        "heading": "Free Downloads",
+        "text": "Free files, macros, PowerGrades, presets, project files, and assets are provided for personal and permitted creative use. You may not resell, redistribute, re-upload, claim as your own, or include them in another downloadable product without permission.\n\nFree downloads are provided \"as is.\" Compatibility, performance, and results may vary depending on your software version, settings, hardware, and other installed tools. No guarantee is made that every file will work in every setup."
+      },
+      {
+        "heading": "Paid Products",
+        "text": "If paid products are offered in the future, any applicable price, license, usage restrictions, refund terms, and delivery details will be shown on the relevant product or checkout page before purchase."
+      },
+      {
+        "heading": "Software and Third-Party Content",
+        "text": "Some downloads may require third-party software, plugins, fonts, or other tools. HEXOR_8 does not own or control those third-party products and is not responsible for their availability, changes, or compatibility."
+      },
+      {
+        "heading": "Updates and Support",
+        "text": "Updates or support are only included when specifically stated on the relevant product page. HEXOR_8 may change, update, remove, or discontinue a download or website feature at any time."
+      },
+      {
+        "heading": "Website Availability",
+        "text": "The site and its downloads are provided on an \"as available\" basis. Files, links, or features may occasionally be unavailable, changed, or removed."
+      },
+      {
+        "heading": "Commissions",
+        "text": "Commission-specific terms covering payment, revisions, turnaround time, delivery, and usage rights are discussed and agreed upon before work begins. See the Hire Me section for more information."
+      },
+      {
+        "heading": "Contact",
+        "text": "For questions about permissions, downloads, or commissions, contact HEXOR_8 through the contact links provided on this site."
+      }
+    ],
+    "termsDownloadUrl": "assets/legal/terms-and-conditions.txt",
+    "privacyHeading": "Privacy Policy",
+    "privacySections": [
+      {
+        "heading": "Information Collected",
+        "text": "The HEXOR_8 website is primarily a portfolio and download site. It does not operate its own backend or database for storing visitor information.\n\nIf you contact HEXOR_8 through an external service, such as Google Forms, Discord, email, or Instagram, that service may process the information you provide according to its own privacy policy."
+      },
+      {
+        "heading": "Commission Requests",
+        "text": "Commission requests submitted through the Hire Me form are processed through Google Forms and may be stored in a linked Google Sheet. The information may include your name, contact details, project requirements, references, and other information you choose to submit.\n\nThis information is used to review and respond to commission inquiries. Access is limited to the people managing HEXOR_8, unless disclosure is required by law or necessary to operate the relevant service.\n\nGoogle's own privacy policy and terms also apply to information processed through Google Forms and Google Sheets."
+      },
+      {
+        "heading": "Downloads and External Links",
+        "text": "The site may link to external download hosts, software services, social platforms, or other websites. Those services may collect or process information independently. HEXOR_8 does not control their privacy practices."
+      },
+      {
+        "heading": "Cookies and Tracking",
+        "text": "This site does not intentionally use its own tracking cookies or advertising trackers. However, embedded content, hosting services, or external platforms may use technical cookies or collect basic technical information according to their own policies."
+      },
+      {
+        "heading": "Data Requests",
+        "text": "For questions about information submitted through the commission form, contact HEXOR_8 through the contact links on this site. Requests involving Google Forms or Google Sheets may need to be handled through Google or the relevant service."
+      },
+      {
+        "heading": "Policy Changes",
+        "text": "This policy may be updated if the website adds new features, analytics, payment services, accounts, or other data-processing tools."
+      }
+    ],
+    "privacyDownloadUrl": "assets/legal/privacy-policy.txt"
+  },
+  "footer": {
+    "text": "© 2026 HEXOR_8. All rights reserved."
+  }
+}

@@ -1,0 +1,26 @@
+HEXOR_8 — PRIVACY POLICY
+General information only — not legal advice.
+
+INFORMATION COLLECTED
+The HEXOR_8 website is primarily a portfolio and download site. It does not operate its own backend or database for storing visitor information.
+
+If you contact HEXOR_8 through an external service, such as Google Forms, Discord, email, or Instagram, that service may process the information you provide according to its own privacy policy.
+
+COMMISSION REQUESTS
+Commission requests submitted through the Hire Me form are processed through Google Forms and may be stored in a linked Google Sheet. The information may include your name, contact details, project requirements, references, and other information you choose to submit.
+
+This information is used to review and respond to commission inquiries. Access is limited to the people managing HEXOR_8, unless disclosure is required by law or necessary to operate the relevant service.
+
+Google's own privacy policy and terms also apply to information processed through Google Forms and Google Sheets.
+
+DOWNLOADS AND EXTERNAL LINKS
+The site may link to external download hosts, software services, social platforms, or other websites. Those services may collect or process information independently. HEXOR_8 does not control their privacy practices.
+
+COOKIES AND TRACKING
+This site does not intentionally use its own tracking cookies or advertising trackers. However, embedded content, hosting services, or external platforms may use technical cookies or collect basic technical information according to their own policies.
+
+DATA REQUESTS
+For questions about information submitted through the commission form, contact HEXOR_8 through the contact links on this site. Requests involving Google Forms or Google Sheets may need to be handled through Google or the relevant service.
+
+POLICY CHANGES
+This policy may be updated if the website adds new features, analytics, payment services, accounts, or other data-processing tools.

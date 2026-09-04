@@ -180,6 +180,27 @@ img { max-width: 100%; display: block; }
 /* Layout helpers */
 main { padding: 0 6vw 80px; position: relative; }
 .section { padding: 56px 0; position: relative; scroll-margin-top: 110px; }
+
+/* A thin flowing line between specific sections (placed explicitly in
+   index.html — not every section gets one). Scales with the page width
+   instead of a fixed cap, and stays coral-only (no purple). */
+.section-divider {
+  width: min(96%, 1600px);
+  max-width: 96%;
+  height: 1px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--coral), var(--coral-deep), var(--coral), transparent);
+  background-size: 200% 100%;
+  animation: sectionDividerFlow 7s linear infinite;
+}
+@keyframes sectionDividerFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -200% 0%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-divider { animation: none; background-position: 0% 0%; }
+}
 .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; font-weight: 700; }
 .section-sub { color: var(--muted); max-width: 620px; margin: 0 0 36px; font-size: 1.05rem; }
 .section-label {
@@ -228,6 +249,20 @@ main { padding: 0 6vw 80px; position: relative; }
 .hero-portrait { border-radius: 28px; overflow: hidden; }
 .hero-portrait img { width: 100%; }
 
+.hero-experience { font-weight: 700; color: var(--coral-deep); margin: 22px 0 10px; font-family: 'Poppins', sans-serif; }
+.hero-skills-label { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
+
+/* Reusable pill tag list — hero skills, Professional Video Editing sample-work tags */
+.tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+  background: var(--card);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -253,6 +288,63 @@ main { padding: 0 6vw 80px; position: relative; }
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
+
+/* Text animations: within a revealed section, the label/title/sub cascade
+   in one after another instead of all appearing at once. */
+.section.reveal .section-label,
+.section.reveal .section-title,
+.section.reveal .section-sub {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.section.reveal.in .section-label { opacity: 1; transform: none; transition-delay: 0s; }
+.section.reveal.in .section-title { opacity: 1; transform: none; transition-delay: 0.1s; }
+.section.reveal.in .section-sub { opacity: 1; transform: none; transition-delay: 0.2s; }
+@media (prefers-reduced-motion: reduce) {
+  .section.reveal .section-label,
+  .section.reveal .section-title,
+  .section.reveal .section-sub { opacity: 1; transform: none; transition: none; }
+}
+
+/* Hero heading word-by-word fade-up on load (see js/text-animate.js) */
+.hero h1 .word-anim {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: wordFadeUp 0.5s ease forwards;
+}
+@keyframes wordFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .word-anim { animation: none; opacity: 1; transform: none; }
+}
+
+/* Decorative floating particles (see js/particles.js) */
+.particles-wrap {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  top: 100%;
+  border-radius: 50%;
+  animation-name: particleFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes particleFloat {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(16px, -55vh); }
+  100% { transform: translate(-12px, -115vh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .particles-wrap { display: none; }
+}
 
 /* Grid of media cards (reel / gallery) */
 .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; }
@@ -331,12 +423,31 @@ button.media-card {
 .accordion-body p { white-space: pre-line; }
 
 /* Contact / commission form */
+/* Rotating gradient border on the commission form card — two background
+   layers (padding-box = actual card color, border-box = spinning conic
+   gradient) separated by a transparent border, so only the border ring
+   shows the animation. Technique: https://developer.mozilla.org/en-US/docs/Web/CSS/@property */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes contactCardBorderSpin {
+  to { --border-angle: 360deg; }
+}
 .contact-card {
-  background: var(--card);
   border-radius: var(--radius);
   padding: 36px;
   box-shadow: 0 10px 30px var(--shadow);
   max-width: 720px;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    conic-gradient(from var(--border-angle), var(--coral), var(--gold), var(--purple), var(--coral)) border-box;
+  animation: contactCardBorderSpin 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-card { animation: none; }
 }
 .gform-embed {
   border-radius: 16px;
@@ -360,6 +471,31 @@ button.media-card {
 .contact-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
 .contact-links a { background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-weight: 600; }
 .contact-links a:hover { background: var(--coral); }
+
+/* Custom commission form — styled to not look like a raw Google Form
+   (see js/commission-form.js for the background submit logic). */
+.custom-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: flex; flex-direction: column; gap: 6px; }
+.form-row label { font-weight: 600; font-size: 0.9rem; font-family: 'Poppins', sans-serif; }
+.form-row input,
+.form-row select,
+.form-row textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #f4dede;
+  background: #fffaf9;
+  color: var(--ink);
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--coral);
+}
+.form-row textarea { resize: vertical; }
+.custom-form .btn { align-self: flex-start; }
+.form-status { margin: 0; font-weight: 600; color: var(--coral-deep); min-height: 1.2em; }
 
 /* Footer */
 footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 0.9rem; }
@@ -417,32 +553,45 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .category-nav a.active { border-color: var(--coral); color: var(--coral-deep); }
 
 /* Brand icon mark */
-.brand-gif { display: inline-flex; align-items: center; height: 42px; }
-.brand-gif img {
-  height: 100%;
-  width: auto;
-  max-width: 200px;
-  object-fit: contain;
-  border-radius: 10px;
+.brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   background: var(--coral);
-  display: block;
-}
-
-/* Add-more placeholder tile (galleries that can grow) */
-.add-more-tile {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  border: 2px dashed #f0d9db;
-  background: transparent;
-  box-shadow: none;
-  color: var(--muted);
-  min-height: 160px;
+  overflow: hidden;
 }
-.add-more-tile span { font-size: 1.8rem; }
-.add-more-tile .caption { padding: 0; font-weight: 500; color: var(--muted); }
+.brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+  /* MYICONSHIT.png is a light/near-white line mark — invert it to solid
+     white so it reads clearly against the coral circle. */
+  filter: brightness(0) invert(1);
+}
+
+/* Show-more toggling (Edits, GFX banners/thumbnails, Shop, My Story,
+   Terms/Privacy — see js/render.js attachShowMore) */
+.hidden-extra { display: none !important; }
+.show-more-btn {
+  display: block;
+  margin: 18px auto 0;
+  background: var(--card);
+  color: var(--coral-deep);
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 16px var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.show-more-btn:hover { border-color: var(--coral); transform: translateY(-2px); }
 
 /* Empty state (no fake content) */
 .empty-state {
@@ -459,13 +608,11 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .gfx-sub:first-of-type { margin-top: 20px; }
 .gfx-sub h3 { font-size: 1.2rem; margin: 0 0 14px; font-weight: 700; }
 
+/* One long banner strip per row, stacked — not a side-by-side grid. */
 .banner-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-}
-@media (max-width: 720px) {
-  .banner-grid { grid-template-columns: 1fr; }
 }
 .banner-item {
   display: block;
@@ -477,9 +624,14 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
   overflow: hidden;
   box-shadow: 0 8px 22px var(--shadow);
   cursor: pointer;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 4 / 1;
 }
-.banner-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 720px) {
+  .banner-item { aspect-ratio: 2 / 1; }
+}
+.banner-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.banner-item:hover { box-shadow: 0 14px 30px var(--shadow); }
+.banner-item:hover img { transform: scale(1.08); }
 
 .thumb-grid {
   display: grid;
@@ -565,6 +717,37 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .tool-name { font-weight: 700; font-size: 1.1rem; font-family: 'Poppins', sans-serif; }
 .tool-sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
 
+/* Shop */
+.shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.shop-category { margin-bottom: 28px; }
+.shop-category h4 { font-size: 1.02rem; font-weight: 700; margin: 0 0 12px; font-family: 'Poppins', sans-serif; }
+.shop-item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.shop-item {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 22px var(--shadow);
+}
+.shop-item-name { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 6px; }
+.shop-item-desc { color: var(--muted); font-size: 0.9rem; margin: 0 0 16px; }
+.shop-item-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.shop-item-actions .btn { padding: 10px 18px; font-size: 0.9rem; }
+.shop-item-empty {
+  border: 2px dashed #f0d9db;
+  box-shadow: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+}
+
+/* Terms & Conditions / Privacy Policy */
+.legal-disclaimer { color: var(--muted); font-size: 0.85rem; font-style: italic; margin: 0 0 18px; }
+
 /* Socials — compact icon row (matches the original channel-header treatment) */
 .social-grid {
   display: flex;
@@ -598,36 +781,19 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 
 .scraps-section .empty-state { max-width: 480px; }
 
-/* ============================================================
-   Flowing ribbon — connects Hero / Watch My Stuff / Anime Edits /
-   My Story / Tools as the user scrolls. See js/ribbon.js.
-   ============================================================ */
-.ribbon-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-.ribbon-wrap svg { display: block; width: 100%; height: 100%; }
-.ribbon-wrap path {
-  opacity: 0.35;
-  transition: stroke-dashoffset 0.1s linear;
-}
-@media (prefers-reduced-motion: reduce) {
-  .ribbon-wrap path { transition: none; }
-}
-@media (max-width: 720px) {
-  /* Margins are too thin on small screens for the ribbon to stay clear of
-     content, so it's hidden rather than risk overlapping text/cards. */
-  .ribbon-wrap { display: none; }
-}
+/* About Me — wraps My Story / Terms & Conditions / Privacy Policy */
+.about-sub { margin-top: 44px; }
+.about-sub:first-of-type { margin-top: 20px; }
+.about-sub h3 { font-size: 1.3rem; margin: 0 0 14px; font-weight: 700; font-family: 'Poppins', sans-serif; }
 
 /* My Story section */
 .my-story-text { max-width: 640px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; white-space: pre-line; }
 
-/* How Commissions Work — 4-step process list */
+/* How Commissions Work / Your Process — side by side, compact cards */
+.process-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+@media (max-width: 780px) {
+  .process-columns { grid-template-columns: 1fr; }
+}
 .process-block { margin-bottom: 40px; text-align: center; }
 .process-heading { font-size: 1.4rem; margin: 0 0 6px; }
 .process-subheading { color: var(--muted); margin: 0 0 24px; }
@@ -652,6 +818,51 @@ footer { padding: 32px 6vw; text-align: center; color: var(--muted); font-size: 
 .process-title { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 4px; }
 .process-desc { color: var(--muted); font-size: 0.92rem; }
 .process-arrow { color: var(--muted); font-size: 1.3rem; line-height: 1.4; }
+
+/* Compact variant used when the two process lists sit side by side */
+.process-block--compact { margin-bottom: 0; }
+.process-block--compact .process-heading { font-size: 1.15rem; }
+.process-block--compact .process-subheading { margin-bottom: 16px; font-size: 0.85rem; }
+.process-block--compact .process-steps { gap: 4px; max-width: 100%; }
+.process-block--compact .process-step { padding: 12px 16px; border-radius: 12px; }
+.process-block--compact .process-num { width: 24px; height: 24px; font-size: 0.85rem; margin-bottom: 4px; }
+.process-block--compact .process-title { font-size: 0.9rem; margin-bottom: 2px; }
+.process-block--compact .process-desc { font-size: 0.8rem; }
+.process-block--compact .process-arrow { font-size: 1rem; line-height: 1; }
+
+/* Single collapsed toggle for the commission terms group */
+.terms-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 640px;
+  background: var(--card);
+  border: none;
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 18px var(--shadow);
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+.terms-toggle-btn .arrow { transition: transform 0.25s ease; }
+.terms-toggle-btn.open .arrow { transform: rotate(180deg); }
+
+/* Compact variant used inside the side-by-side How Commissions Work /
+   Your Process cards */
+.process-toggle-btn { max-width: 100%; padding: 10px 16px; font-size: 0.85rem; margin: 8px 0 0; }
+.process-toggle-body { margin-top: 12px; }
+
+/* Terms & Conditions / Privacy Policy sections */
+.legal-section { margin-bottom: 22px; max-width: 680px; }
+.legal-section h4 { font-size: 1.05rem; margin: 0 0 6px; font-family: 'Poppins', sans-serif; }
+.legal-section p { color: var(--muted); line-height: 1.7; white-space: pre-line; margin: 0; }
+
+/* My Story paragraphs (see js/render.js buildMyStory) */
+.my-story-text p { margin: 0 0 16px; }
+.my-story-text p:last-child { margin-bottom: 0; }
 
 /* Shown only when the page is opened via file:// instead of Start Website.bat */
 .file-protocol-warning {

@@ -20,6 +20,18 @@ if (revealEls.length) {
   revealEls.forEach(el => io.observe(el));
 }
 
+// Generic collapsed-section toggle: any button with data-toggle-target
+// shows/hides the element with that id (Payment/Revisions/etc., and the
+// "Wanna know more?" toggles on How Commissions Work / Your Process).
+document.querySelectorAll('[data-toggle-target]').forEach(btn => {
+  const body = document.getElementById(btn.dataset.toggleTarget);
+  if (!body) return;
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.toggle('open');
+    body.classList.toggle('hidden-extra', !isOpen);
+  });
+});
+
 // Terms accordion
 document.querySelectorAll('.accordion-head').forEach(head => {
   head.addEventListener('click', () => {

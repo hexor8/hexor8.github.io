@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- These SEO/social tags are intentionally hardcoded here rather than
-     driven by content.js: Discord/Twitter/Slack/iMessage link-preview
+     driven by content.json: Discord/Twitter/Slack/iMessage link-preview
      bots and most search crawlers read the raw HTML and do NOT run this
      site's JavaScript, so anything rendered by render.js (like the rest
      of the page's text) would be invisible to them. If you rename the
@@ -63,30 +63,11 @@
 </head>
 <body>
 
-<!-- ============================================================
-     RIBBON (design/animation only — nothing to edit here).
-     See js/ribbon.js for the anchor points it connects, and the
-     gradient stop colors below if you want to change its color.
-     ============================================================ -->
-<div class="ribbon-wrap" id="ribbonWrap" aria-hidden="true">
-  <svg id="ribbonSvg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="ribbonGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="400" y2="0">
-        <stop offset="0%" stop-color="#ff4d6d"/>
-        <stop offset="50%" stop-color="#7c5cff"/>
-        <stop offset="100%" stop-color="#ff4d6d"/>
-        <animateTransform attributeName="gradientTransform" type="translate" from="-400 0" to="400 0" dur="10s" repeatCount="indefinite"/>
-      </linearGradient>
-    </defs>
-    <path id="ribbonPath" d="" fill="none" stroke="url(#ribbonGradient)" stroke-width="2.5" stroke-linecap="round"/>
-  </svg>
-</div>
-
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 <div class="blob blob-3"></div>
 
-<!-- ===== CHANNEL HEADER — banner/avatar/name/handle come from content.js "brand" ===== -->
+<!-- ===== CHANNEL HEADER — banner/avatar/name/handle come from content.json "brand" ===== -->
 <div class="yt-banner-wrap" id="top">
   <img data-c-src="brand.bannerImage" src="" alt="Channel banner" class="yt-banner">
   <div class="channel-bar">
@@ -106,27 +87,32 @@
   </div>
 </div>
 
-<!-- ===== TOP NAV — labels come from content.js "nav" ===== -->
+<!-- ===== TOP NAV — labels come from content.json "nav" ===== -->
 <nav class="site-nav">
-  <a href="#top" class="brand brand-gif">
-    <img data-c-src="brand.navGif" data-c-alt="brand.name" src="" alt="HEXOR_8">
+  <a href="#top" class="brand">
+    <span class="brand-icon"><img data-c-src="brand.iconImage" src="" alt=""></span>
+    <span data-c="brand.name">HEXOR_8</span><span class="dot">.</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle menu">☰</button>
   <ul class="nav-links">
     <li><a href="#top" data-c="nav.home">Home</a></li>
     <li><a href="#watch-my-stuff" data-c="nav.watchMyStuff">Watch My Stuff</a></li>
     <li><a href="#hire-me" data-c="nav.hireMe">Hire Me</a></li>
+    <li><a href="#shop" data-c="nav.shop">Shop</a></li>
   </ul>
 </nav>
 
 <main>
 
-  <!-- ============ HERO — edit text in content.js "hero" ============ -->
+  <!-- ============ HERO — edit text in content.json "hero" ============ -->
   <section class="hero" id="hero">
     <div>
       <span class="badge" data-c="hero.badge">welcome!</span>
       <h1><span data-c="hero.headingBeforeName">Hey, I'm </span><span class="highlight" data-c="hero.headingName">HEXOR_8</span></h1>
-      <p data-c="hero.paragraph">Editing, compositing, and motion design.</p>
+      <p class="hero-experience" data-c="hero.experience">2 years of experience</p>
+      <p class="hero-skills-label" data-c="hero.skillsLabel">Skills</p>
+      <!-- Generated from content.json "hero.skills" by js/render.js -->
+      <div class="tag-row" id="heroSkills" style="margin-bottom:26px;"></div>
       <div class="btn-row">
         <a href="#watch-my-stuff" class="btn btn-primary" data-c="hero.primaryButton">Watch My Stuff</a>
         <a href="#hire-me" class="btn btn-outline" data-c="hero.secondaryButton">Hire Me</a>
@@ -137,102 +123,198 @@
     </div>
   </section>
 
-  <!-- ============ WATCH MY STUFF — edit text in content.js "watchMyStuff",
+  <!-- ============ WATCH MY STUFF — edit text in content.json "watchMyStuff",
        buttons in "watchMyStuff.categories" ============ -->
   <section class="section" id="watch-my-stuff" style="padding-bottom:0;">
     <div class="center">
       <span class="section-label" data-c="watchMyStuff.label">Watch My Stuff</span>
       <p class="section-sub" style="margin:10px auto 0;" data-c="watchMyStuff.paragraph">Anime edits, talking-head videos, and GFX.</p>
     </div>
-    <!-- Buttons below are generated from content.js by js/render.js -->
+    <!-- Buttons below are generated from content.json by js/render.js -->
     <nav class="category-nav" id="categoryNav" aria-label="Portfolio categories"></nav>
     <div id="categoryNavSentinel"></div>
   </section>
 
+  <div class="section-divider" aria-hidden="true"></div>
+
   <!-- ============ PROFESSIONAL VIDEO EDITING (was Talking-Head Videos) —
-       edit in content.js "talkingHead" ============ -->
+       edit in content.json "talkingHead" ============ -->
   <section class="section reveal" id="talking-head">
     <span class="section-label" data-c="talkingHead.label">Professional Video Editing</span>
     <h2 class="section-title" data-c="talkingHead.heading">Professional Video Editing</h2>
     <p class="section-sub" data-c="talkingHead.paragraph">Commentary and talking-head editing.</p>
-    <!-- Generated from content.js "talkingHead.videos" by js/render.js -->
+    <p class="section-sub" data-c="talkingHead.description">This work is here to show what I can do with raw footage.</p>
+    <div class="tag-row" style="margin-bottom:28px;">
+      <span class="tag" data-c="talkingHead.sampleWorkLabel" style="background:var(--ink);color:#fff;">Sample Work</span>
+      <!-- Generated from content.json "talkingHead.sampleWorkTags" by js/render.js -->
+      <span id="talkingHeadTags" style="display:contents;"></span>
+    </div>
+    <!-- Generated from content.json "talkingHead.videos" by js/render.js -->
     <div class="media-grid" id="talkingHeadGrid"></div>
   </section>
 
-  <!-- ============ GFX — edit images in content.js "gfx" ============ -->
+  <!-- ============ GFX — edit images in content.json "gfx" ============ -->
   <section class="section reveal" id="gfx">
     <span class="section-label" data-c="gfx.label">GFX</span>
     <h2 class="section-title" data-c="gfx.heading">GFX</h2>
 
     <div class="gfx-sub" id="gfx-banners">
       <h3 data-c="gfx.banners.heading">Banners & Headers</h3>
-      <!-- Generated from content.js "gfx.banners.items" by js/render.js -->
+      <!-- Generated from content.json "gfx.banners.items" by js/render.js -->
       <div class="banner-grid" id="gfxBannerGrid"></div>
     </div>
 
     <div class="gfx-sub" id="gfx-thumbnails">
       <h3 data-c="gfx.thumbnails.heading">Thumbnails</h3>
-      <!-- Generated from content.js "gfx.thumbnails.items" by js/render.js -->
+      <!-- Generated from content.json "gfx.thumbnails.items" by js/render.js -->
       <div class="thumb-grid" id="gfxThumbGrid"></div>
     </div>
   </section>
 
-  <!-- ============ EDITS (was Anime Edits) — edit videos in content.js
+  <!-- ============ EDITS (was Anime Edits) — edit videos in content.json
        "animeEdits.videos" ============ -->
   <section class="section reveal" id="anime-edits">
     <span class="section-label" data-c="animeEdits.label">Edits</span>
     <h2 class="section-title" data-c="animeEdits.heading">Edits</h2>
     <p class="section-sub" data-c="animeEdits.paragraph">Anime edits from my YouTube channel.</p>
-    <!-- Video cards below are generated from content.js by js/render.js.
+    <!-- Video cards below are generated from content.json by js/render.js.
          To add a video: add a { id, title } entry to animeEdits.videos
-         in content.js — no HTML editing needed. -->
+         in content.json — no HTML editing needed. -->
     <div class="media-grid" id="animeEditsGrid"></div>
   </section>
 
-  <!-- ============ COMMISSION / CONTACT — edit in content.js "commission" ============ -->
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ============ SHOP — edit in content.json "shop" ============ -->
+  <section class="section reveal" id="shop">
+    <span class="section-label" data-c="shop.label">Shop</span>
+    <h2 class="section-title" data-c="shop.heading">Shop</h2>
+    <p class="section-sub" data-c="shop.paragraph">Free downloads for editors.</p>
+
+    <h3 data-c="shop.freeHeading" style="font-size:1.2rem;margin:0 0 16px;font-weight:700;">Free Downloads</h3>
+    <!-- Generated from content.json "shop.freeCategories" (only the categories
+         that actually have files) by js/render.js -->
+    <div id="shopFreeCategories"></div>
+
+    <!-- Everything else — empty free categories + all of Paid Products —
+         sits behind one dropdown instead of cluttering the page with
+         Coming Soon placeholders. Toggle button is inserted by js/render.js
+         (buildShop) right before this div. -->
+    <div id="shopMore" class="hidden-extra">
+      <div id="shopFreeMoreCategories"></div>
+      <h3 data-c="shop.paidHeading" style="font-size:1.2rem;margin:36px 0 16px;font-weight:700;">Paid Products</h3>
+      <!-- Generated from content.json "shop.paidCategories" by js/render.js -->
+      <div class="shop-grid" id="shopPaidCategories"></div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ============ COMMISSION / CONTACT — edit in content.json "commission" ============ -->
   <section class="section reveal" id="hire-me">
     <span class="section-label" data-c="commission.label">Hire Me</span>
     <h2 class="section-title" data-c="commission.heading">Commission Me</h2>
     <p class="section-sub" data-c="commission.paragraph">Fill out the form below or reach out directly.</p>
 
-    <!-- "How Commissions Work" — edit steps in content.js "commission.process" -->
-    <div class="process-block">
-      <h3 class="process-heading" data-c="commission.processHeading">How Commissions Work</h3>
-      <p class="process-subheading" data-c="commission.processSubheading">Simple process. Clear communication.</p>
-      <!-- Generated from content.js "commission.process" by js/render.js -->
-      <div class="process-steps" id="commissionProcess"></div>
-    </div>
-
-    <!-- Generated from content.js "commission.terms" by js/render.js -->
-    <div id="commissionTerms"></div>
-
-    <div class="contact-card" style="margin-top:32px;">
-      <!-- Commission request form — a real Google Form embedded via iframe.
-           Submissions go straight to Google (and a Sheet, if connected);
-           nothing here ever touches this site/repo. Edit the URLs in
-           content.js "commission.googleForm" once you've built the form. -->
-      <div class="gform-embed">
-        <iframe id="gformEmbed" data-c-src="commission.googleForm.embedUrl" src="" title="Commission request form" loading="lazy">Loading form…</iframe>
-      </div>
+    <div class="contact-card">
+      <!-- Commission request form — styled to match the site instead of
+           looking like a raw Google Form. It submits in the background to
+           the real Google Form's response endpoint (see js/commission-form.js
+           and content.json "commission.customForm") so submissions still land
+           in Google Forms/Sheets like before; nothing touches this repo. -->
+      <form class="custom-form" id="hireMeForm" novalidate>
+        <div class="form-row">
+          <label for="cf-name">Your Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-contact">How should I contact you?</label>
+          <input type="text" id="cf-contact" name="contact" placeholder="Email, Discord, Instagram…" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-worktype">What type of work are you requesting?</label>
+          <!-- Options filled in from content.json "commission.customForm.workTypeOptions" -->
+          <select id="cf-worktype" name="workType" required></select>
+        </div>
+        <div class="form-row">
+          <label for="cf-description">Project Description</label>
+          <textarea id="cf-description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="cf-deadline">Preferred Deadline</label>
+          <input type="date" id="cf-deadline" name="deadline" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-budget">Estimated Budget Range</label>
+          <input type="text" id="cf-budget" name="budget" placeholder="e.g. $20–50" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-references">Reference Links</label>
+          <input type="text" id="cf-references" name="references" placeholder="YouTube, Pinterest, etc." required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="cfSubmitBtn">Send Request</button>
+        <p class="form-status" id="cfFormStatus" role="status" aria-live="polite"></p>
+      </form>
       <p class="gform-fallback">
-        <span data-c="commission.googleForm.fallbackText">Having trouble seeing the form? Open it directly:</span>
+        <span data-c="commission.googleForm.fallbackText">Having trouble sending this? Open the form directly:</span>
         <a data-c-href="commission.googleForm.url" data-c="commission.googleForm.fallbackLinkText" href="#" target="_blank" rel="noopener">Open the commission form</a>
       </p>
 
-      <!-- Generated from content.js "commission.contactLinks" by js/render.js -->
+      <!-- Generated from content.json "commission.contactLinks" by js/render.js -->
       <div class="contact-links" id="commissionContactLinks"></div>
+    </div>
+
+    <div class="section-divider" aria-hidden="true" style="margin:40px auto;"></div>
+
+    <!-- Payment/Revisions/Turnaround/Usage Rights sit behind one collapsed
+         toggle instead of 4 always-visible accordion rows. -->
+    <button type="button" class="terms-toggle-btn" data-toggle-target="commissionTerms">
+      <span data-c="commission.termsToggleLabel">Payment, Revisions, Turnaround & Usage Rights</span>
+      <span class="arrow">▾</span>
+    </button>
+    <!-- Generated from content.json "commission.terms" by js/render.js -->
+    <div id="commissionTerms" class="hidden-extra"></div>
+
+    <!-- "How Commissions Work" + "Your Process" side by side (compact
+         cards), each collapsed behind its own "Wanna know more?" toggle. -->
+    <div class="process-columns" style="margin-top:32px;">
+      <div class="process-block process-block--compact">
+        <h3 class="process-heading" data-c="commission.processHeading">How Commissions Work</h3>
+        <button type="button" class="terms-toggle-btn process-toggle-btn" data-toggle-target="commissionProcessBody">
+          <span data-c="commission.wannaKnowMoreLabel">Wanna know more?</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="process-toggle-body hidden-extra" id="commissionProcessBody">
+          <p class="process-subheading" data-c="commission.processSubheading">Simple process. Clear communication.</p>
+          <!-- Generated from content.json "commission.process" by js/render.js -->
+          <div class="process-steps" id="commissionProcess"></div>
+        </div>
+      </div>
+      <div class="process-block process-block--compact">
+        <h3 class="process-heading" data-c="commission.yourProcessHeading">Your Process</h3>
+        <button type="button" class="terms-toggle-btn process-toggle-btn" data-toggle-target="yourProcessBody">
+          <span data-c="commission.wannaKnowMoreLabel">Wanna know more?</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="process-toggle-body hidden-extra" id="yourProcessBody">
+          <!-- Generated from content.json "commission.yourProcess" by js/render.js -->
+          <div class="process-steps" id="yourProcessSteps"></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ============ SOCIALS — edit list in content.js "socials.items" ============ -->
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ============ SOCIALS — edit list in content.json "socials.items" ============ -->
   <section class="section reveal">
     <span class="section-label" data-c="socials.label">Socials</span>
     <h2 class="section-title" data-c="socials.heading">Find Me</h2>
-    <!-- Generated from content.js "socials.items" by js/render.js -->
+    <!-- Generated from content.json "socials.items" by js/render.js -->
     <div class="social-grid" id="socialsGrid"></div>
   </section>
 
-  <!-- ============ SCRAPS — edit text in content.js "scraps" ============ -->
+  <!-- ============ SCRAPS — edit text in content.json "scraps" ============ -->
   <section class="section reveal scraps-section" id="scraps">
     <span class="section-label" data-c="scraps.label">Scraps</span>
     <h2 class="section-title" data-c="scraps.heading">Scraps</h2>
@@ -240,19 +322,52 @@
     <div class="empty-state" data-c="scraps.emptyText">Nothing here yet.</div>
   </section>
 
-  <!-- ============ TOOLS — edit list in content.js "tools.items" ============ -->
+  <!-- ============ TOOLS — edit list in content.json "tools.items" ============ -->
   <section class="section reveal" id="tools">
     <span class="section-label" data-c="tools.label">Tools</span>
     <h2 class="section-title" data-c="tools.heading">Tools</h2>
-    <!-- Generated from content.js "tools.items" by js/render.js -->
+    <!-- Generated from content.json "tools.items" by js/render.js -->
     <div class="tools-grid" id="toolsGrid"></div>
   </section>
 
-  <!-- ============ MY STORY — edit text in content.js "myStory" ============ -->
-  <section class="section reveal" id="my-story">
-    <span class="section-label" data-c="myStory.label">My Story</span>
-    <h2 class="section-title" data-c="myStory.heading">My Story</h2>
-    <p class="my-story-text" data-c="myStory.paragraph">Placeholder bio.</p>
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- ============ ABOUT ME — My Story, Terms & Conditions, and Privacy
+       Policy grouped under one section instead of 3 separate ones. Each
+       sub-part keeps its own id so existing links (#my-story, #terms,
+       #privacy) still work. ============ -->
+  <section class="section reveal" id="about-me">
+    <span class="section-label" data-c="aboutMe.label">About Me</span>
+    <h2 class="section-title" data-c="aboutMe.heading">About Me</h2>
+
+    <!-- MY STORY — edit text in content.json "myStory" -->
+    <div class="about-sub" id="my-story">
+      <h3 data-c="myStory.heading">My Story</h3>
+      <!-- Generated from content.json "myStory.paragraph" by js/render.js —
+           only the first paragraph shows by default, rest sit behind Read More. -->
+      <div id="myStoryText" class="my-story-text"></div>
+    </div>
+
+    <!-- TERMS & CONDITIONS — edit in content.json "legal" -->
+    <div class="about-sub" id="terms">
+      <h3 data-c="legal.termsHeading">Terms & Conditions</h3>
+      <p class="legal-disclaimer" data-c="legal.disclaimer">General information only — not legal advice.</p>
+      <p class="section-sub" data-c="legal.termsIntro" style="margin-bottom:20px;">Placeholder intro.</p>
+      <!-- Generated from content.json "legal.termsSections" by js/render.js —
+           only the first section shows by default, rest sit behind Read More. -->
+      <div id="termsSections"></div>
+      <a class="btn btn-outline" data-c-href="legal.termsDownloadUrl" data-c="legal.downloadLabel" href="#" download style="margin-top:24px;">Download (.txt)</a>
+    </div>
+
+    <!-- PRIVACY POLICY — edit in content.json "legal" -->
+    <div class="about-sub" id="privacy">
+      <h3 data-c="legal.privacyHeading">Privacy Policy</h3>
+      <p class="legal-disclaimer" data-c="legal.disclaimer">General information only — not legal advice.</p>
+      <!-- Generated from content.json "legal.privacySections" by js/render.js —
+           only the first section shows by default, rest sit behind Read More. -->
+      <div id="privacySections"></div>
+      <a class="btn btn-outline" data-c-href="legal.privacyDownloadUrl" data-c="legal.downloadLabel" href="#" download style="margin-top:24px;">Download (.txt)</a>
+    </div>
   </section>
 
 </main>
@@ -263,8 +378,11 @@
     <a href="#talking-head">Professional Video Editing</a>
     <a href="#gfx">GFX</a>
     <a href="#anime-edits">Edits</a>
+    <a href="#shop">Shop</a>
     <a href="#hire-me">Hire Me</a>
     <a href="#my-story">My Story</a>
+    <a href="#terms">Terms & Conditions</a>
+    <a href="#privacy">Privacy Policy</a>
   </nav>
   <p data-c="footer.text">© 2026 HEXOR_8. All rights reserved.</p>
 </footer>
@@ -285,14 +403,12 @@
   <button id="fileProtocolWarningClose" aria-label="Dismiss">✕</button>
 </div>
 
-<!-- content.js + js/render.js MUST load before the other scripts below —
-     they build the page from your content before script.js/category-nav.js/
-     lightbox.js go looking for elements to attach behavior to. -->
-<script src="content.js"></script>
-<script src="js/render.js"></script>
-<script src="js/script.js"></script>
-<script src="js/category-nav.js"></script>
-<script src="js/lightbox.js"></script>
-<script src="js/ribbon.js"></script>
+<!-- content-loader.js fetches content.json, then loads render.js and every
+     other script below IN ORDER — render.js must build the page before
+     script.js/category-nav.js/lightbox.js go looking for elements to
+     attach behavior to. See js/content-loader.js for why this is async
+     now instead of plain <script> tags (the admin-worker/ backend edits
+     content.json directly). -->
+<script src="js/content-loader.js"></script>
 </body>
 </html>
