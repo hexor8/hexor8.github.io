@@ -413,8 +413,9 @@
         "label": "Macros",
         "items": [
           {
-            "name": "Glass Magnify PFP Effect Macro",
-            "description": "A smooth, realistic glass magnify effect for profile images and edits. Simple setup, clean results, and ready for DaVinci Resolve Fusion...",
+            "name": "Scale Wipe V1",
+            "description": "A clean black-and-white scale wipe macro for smooth transitions and stylized edits. Ready for DaVinci Resolve Fusion...",
+            "image": "assets/images/GFX/sale-wipe-square.jpg",
             "fileUrl": "https://payhip.com/b/73e0K",
             "price": "Paid"
           },
@@ -422,8 +423,8 @@
             "name": "Hyper Slide Macro",
             "description": "Flow pack macro for fast, fluid slide movement and stylized transitions. Ready to download and use in DaVinci Resolve.",
             "image": "assets/images/GFX/hyper-slide-preview.jpg",
-            "fileUrl": "https://hexor8.github.io/",
-            "price": "Free"
+            "fileUrl": "https://payhip.com/b/8mFtv",
+            "price": "Paid"
           }
         ]
       },
@@ -433,7 +434,7 @@
           {
             "name": "4x4 AMV MIX | Project File",
             "description": "The project file for the 4x4 AMV mix edit, including the edit structure and visual treatment...",
-            "image": "assets/images/GFX/4x4-amv-mix-project-file-wide.jpg",
+            "image": "assets/images/GFX/4x4-amv-mix-project-file-detail.jpg",
             "fileUrl": "https://payhip.com/b/av26T",
             "price": "Paid"
           }
