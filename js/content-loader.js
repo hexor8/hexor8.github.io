@@ -34,7 +34,7 @@
       return chain.then(function () {
         return new Promise(function (resolve, reject) {
           var s = document.createElement('script');
-          s.src = src;
+          s.src = src + '?_=' + Date.now();
           s.onload = resolve;
           s.onerror = function () { reject(new Error('Failed to load ' + src)); };
           document.body.appendChild(s);
@@ -43,3 +43,4 @@
     }, Promise.resolve());
   }
 })();
+

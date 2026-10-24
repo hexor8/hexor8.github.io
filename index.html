@@ -197,20 +197,18 @@
     <h2 class="section-title" data-c="shop.heading">Shop</h2>
     <p class="section-sub" data-c="shop.paragraph">Free downloads for editors.</p>
 
-    <h3 data-c="shop.freeHeading" style="font-size:1.2rem;margin:0 0 16px;font-weight:700;">Free Downloads</h3>
+    <h3 data-c="shop.paidHeading" style="font-size:1.2rem;margin:0 0 16px;font-weight:700;">Paid Products</h3>
+    <!-- Paid products are rendered first and remain visible when available. -->
+    <div class="shop-grid" id="shopPaidCategories"></div>
+
+    <h3 data-c="shop.freeHeading" style="font-size:1.2rem;margin:36px 0 16px;font-weight:700;">Free Downloads</h3>
     <!-- Generated from content.json "shop.freeCategories" (only the categories
          that actually have files) by js/render.js -->
     <div id="shopFreeCategories"></div>
 
-    <!-- Everything else — empty free categories + all of Paid Products —
-         sits behind one dropdown instead of cluttering the page with
-         Coming Soon placeholders. Toggle button is inserted by js/render.js
-         (buildShop) right before this div. -->
+    <!-- Only genuinely empty categories sit behind Show More. -->
     <div id="shopMore" class="hidden-extra">
       <div id="shopFreeMoreCategories"></div>
-      <h3 data-c="shop.paidHeading" style="font-size:1.2rem;margin:36px 0 16px;font-weight:700;">Paid Products</h3>
-      <!-- Generated from content.json "shop.paidCategories" by js/render.js -->
-      <div class="shop-grid" id="shopPaidCategories"></div>
     </div>
   </section>
 
@@ -415,7 +413,7 @@
      attach behavior to. See js/content-loader.js for why this is async
      now instead of plain <script> tags (the admin-worker/ backend edits
      content.json directly). -->
-<script src="js/content-loader.js"></script>
+<script src="js/content-loader.js?v=20261024-2"></script>
 </body>
 </html>
 

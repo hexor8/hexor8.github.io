@@ -22,6 +22,11 @@
       .replace(/"/g, '&quot;');
   }
 
+  function driveFileId(url) {
+    const match = String(url || '').match(/(?:\/file\/d\/|[?&]id=)([A-Za-z0-9_-]+)/i);
+    return match ? match[1] : null;
+  }
+
   // Plain text/links driven by data-c / data-c-href / data-c-src attributes
   // anywhere in the static HTML (nav labels, hero copy, section headings...).
   function renderSimpleBindings() {
@@ -112,7 +117,7 @@
     grid.insertAdjacentElement('afterend', btn);
   }
 
-  const GRID_VISIBLE_LIMIT = 2;
+  const GRID_VISIBLE_LIMIT = 4;
   const BANNER_VISIBLE_LIMIT = 1;
 
   function renderAnimeEdits(videos) {
@@ -167,7 +172,9 @@
     const c = SITE.talkingHead;
     const html = c.videos.map((v, i) => `
       <div class="media-card${i >= GRID_VISIBLE_LIMIT ? ' extra-item hidden-extra' : ''}" style="grid-column: span 2; max-width:720px;">
-        <video controls preload="metadata" src="${escapeHtml(v.src)}"></video>
+        ${driveFileId(v.src)
+          ? `<iframe src="https://drive.google.com/file/d/${driveFileId(v.src)}/preview" title="${escapeHtml(v.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+          : `<video controls preload="metadata" src="${escapeHtml(v.src)}"></video>`}
         <div class="caption">${escapeHtml(v.title)} <span>${escapeHtml(v.caption)}</span></div>
       </div>`).join('');
     grid.innerHTML = html;
@@ -283,7 +290,7 @@
               ? `<a class="btn btn-primary" href="${escapeHtml(fileUrl)}" ${downloadAttrs}>Download — ${escapeHtml(item.price || 'Free')}</a>`
               : '';
           return `
-        <div class="shop-item${i >= GRID_VISIBLE_LIMIT ? ' extra-item hidden-extra' : ''}">
+        <div class="shop-item">
           ${preview}
           <div class="shop-item-name">${escapeHtml(item.name)}</div>
           <p class="shop-item-desc">${escapeHtml(item.description)}</p>
@@ -301,20 +308,16 @@
       </div>`;
   }
 
-  // Shop shows only its real, downloadable free items up front; every
-  // empty free category and all of Paid Products sit behind one dropdown
-  // toggle (#shopMore) instead of a wall of "Coming Soon" placeholders.
+  // Shop shows every available paid product first, then every available free
+  // item. Only genuinely empty free categories sit behind Show More.
   function buildShop() {
     const populated = SITE.shop.freeCategories.filter(cat => cat.items.length > 0);
     const empty = SITE.shop.freeCategories.filter(cat => cat.items.length === 0);
+    const paid = SITE.shop.paidCategories.filter(cat => typeof cat === 'string' || cat.items.length > 0);
 
     const freeWrap = document.getElementById('shopFreeCategories');
     if (freeWrap) {
       freeWrap.innerHTML = populated.map(shopCategoryHtml).join('');
-      freeWrap.querySelectorAll('.shop-item-grid').forEach((grid, idx) => {
-        const hidden = Math.max(0, populated[idx].items.length - GRID_VISIBLE_LIMIT);
-        attachShowMore(grid, hidden, `Show ${hidden} More`, 'Show Less');
-      });
     }
 
     const moreCategoriesWrap = document.getElementById('shopFreeMoreCategories');
@@ -324,7 +327,7 @@
 
     const paidWrap = document.getElementById('shopPaidCategories');
     if (paidWrap) {
-      paidWrap.innerHTML = SITE.shop.paidCategories.map(category => {
+      paidWrap.innerHTML = paid.map(category => {
         const cat = typeof category === 'string' ? { label: category, items: [] } : category;
         return shopCategoryHtml(cat);
       }).join('');
@@ -332,6 +335,11 @@
 
     const moreSection = document.getElementById('shopMore');
     if (moreSection) {
+      const hasMore = empty.length > 0;
+      moreSection.classList.add('hidden-extra');
+      const oldToggle = moreSection.previousElementSibling;
+      if (oldToggle && oldToggle.classList.contains('show-more-btn')) oldToggle.remove();
+      if (!hasMore) return;
       const toggleBtn = document.createElement('button');
       toggleBtn.type = 'button';
       toggleBtn.className = 'show-more-btn';

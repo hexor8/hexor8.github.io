@@ -169,8 +169,8 @@
           "alt": "4x4 AMV mix project file banner"
         },
         {
-          "src": "assets/images/GFX/hyper-slide-coming-soon.jpg",
-          "alt": "Hyper Slide macro coming soon banner"
+          "src": "assets/images/GFX/hyper-slide-preview.jpg",
+          "alt": "Hyper Slide macro banner"
         },
         {
           "src": "assets/images/GFX/sale-wipe-wide.jpg",
@@ -420,10 +420,10 @@
           },
           {
             "name": "Hyper Slide Macro",
-            "description": "Flow pack macro for fast, fluid slide movement and stylized transitions...",
-            "image": "assets/images/GFX/hyper-slide-coming-soon.jpg",
-            "price": "Coming Soon",
-            "comingSoon": true
+            "description": "Flow pack macro for fast, fluid slide movement and stylized transitions. Ready to download and use in DaVinci Resolve.",
+            "image": "assets/images/GFX/hyper-slide-preview.jpg",
+            "fileUrl": "assets/SHOP/MACROS/Hyperslide_Pro.setting",
+            "price": "Free"
           }
         ]
       },
