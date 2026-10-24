@@ -54,6 +54,10 @@
     "label": "Edits",
     "heading": "Edits",
     "paragraph": "Anime edits from my YouTube channel.",
+    "youtubeFeed": {
+      "channelId": "UCiw01V-DwlPl0VgOsbhYhqQ",
+      "maxItems": 12
+    },
     "videos": [
       {
         "id": "qrsYoF5Jc30",
@@ -117,8 +121,23 @@
     "description": "This work is here to show what I can do with raw footage — colour, sound, pacing, and structure — start to finish. You can trust your project with me.",
     "videos": [
       {
-        "src": "assets/videos/trial-render.mp4",
-        "title": "Trial Render",
+        "src": "https://drive.google.com/uc?export=download&id=1jc2oKHXWEmEqNznplZPzaVKqCgGQvXXC",
+        "title": "Professional Video Edit · Enhanced",
+        "caption": "Colour · Sound · Pacing"
+      },
+      {
+        "src": "https://drive.google.com/uc?export=download&id=1MX7rZZgQtybVxV9NjYSDc4HO8zltwhcH",
+        "title": "Professional Video Edit · Cut 02",
+        "caption": "Motion · Pacing · B-Rolls"
+      },
+      {
+        "src": "https://drive.google.com/uc?export=download&id=1cW0ORvwMrwnVJmWJDQtBob-W9qIget8I",
+        "title": "Professional Video Edit · Cut 03",
+        "caption": "Colour · Sound · Structure"
+      },
+      {
+        "src": "https://drive.google.com/uc?export=download&id=1z9MMNJmtFU1BNVGBYOS27NUvKkhvu-iv",
+        "title": "Professional Video Edit · Final Cut",
         "caption": "Graded · 2026"
       }
     ]
@@ -144,6 +163,18 @@
         {
           "src": "assets/images/BANNER/COLUMBIA%20BANNER.jpg",
           "alt": "HEXOR banner design, purple theme"
+        },
+        {
+          "src": "assets/images/GFX/4x4-amv-mix-project-file-wide.jpg",
+          "alt": "4x4 AMV mix project file banner"
+        },
+        {
+          "src": "assets/images/GFX/hyper-slide-coming-soon.jpg",
+          "alt": "Hyper Slide macro coming soon banner"
+        },
+        {
+          "src": "assets/images/GFX/sale-wipe-wide.jpg",
+          "alt": "Sale Wipe macro banner"
         }
       ]
     },
@@ -175,12 +206,48 @@
           "alt": "\"How Long\" Charlie Puth anime edit thumbnail"
         },
         {
-          "src": "assets/images/THUMBNAILS/f25c7923-db4c-4cdc-a902-9851927ede61.png",
-          "alt": "\"Love Me Harder\" Violet Evergarden anime edit thumbnail"
-        },
-        {
           "src": "assets/images/THUMBNAILS/bitch%20adds%20.jpg",
           "alt": "\"Custom Banner in DaVinci Resolve\" tutorial thumbnail — Free PF"
+        },
+        {
+          "src": "assets/images/GFX/4x4-amv-mix-project-file.jpg",
+          "alt": "4x4 AMV mix project file artwork"
+        },
+        {
+          "src": "assets/images/GFX/4x4-amv-mix-project-file-detail.jpg",
+          "alt": "4x4 AMV mix project file detail artwork"
+        },
+        {
+          "src": "assets/images/GFX/hyper-slide-preview.jpg",
+          "alt": "Hyper Slide macro preview"
+        },
+        {
+          "src": "assets/images/GFX/matt-hardy-999.jpg",
+          "alt": "Matt Hardy 999 edit artwork"
+        },
+        {
+          "src": "assets/images/GFX/umaru-chan.jpg",
+          "alt": "Umaru-chan edit artwork"
+        },
+        {
+          "src": "assets/images/GFX/sale-wipe-square.jpg",
+          "alt": "Sale Wipe square artwork"
+        },
+        {
+          "src": "assets/images/GFX/sale-wipe-alt.jpg",
+          "alt": "Sale Wipe alternate artwork"
+        },
+        {
+          "src": "assets/images/GFX/eternal-aspire.jpg",
+          "alt": "Eternal Aspire macro artwork"
+        },
+        {
+          "src": "assets/images/GFX/eternal-aspire-portrait.png",
+          "alt": "Eternal Aspire portrait artwork"
+        },
+        {
+          "src": "assets/images/GFX/like-the-way-you-kiss-me.jpg",
+          "alt": "Like the Way You Kiss Me edit artwork"
         }
       ]
     }
@@ -252,7 +319,7 @@
   "shop": {
     "label": "Shop",
     "heading": "Shop",
-    "paragraph": "Free downloads for editors. Paid products are coming soon.",
+    "paragraph": "Free downloads, project files, and tools for editors.",
     "freeHeading": "Free Downloads",
     "freeCategories": [
       {
@@ -274,6 +341,12 @@
             "description": "A DaVinci Resolve macro that controls the opacity of whatever sits before it in the stack — turn it down to make that layer transparent.",
             "fileUrl": "assets/SHOP/MACROS/Opacity.setting",
             "price": "Free"
+          },
+          {
+            "name": "Glass Magnify PFP Effect",
+            "description": "Create a clean glass magnify effect for your profile or edits in seconds. This macro gives a smooth, realistic result without complicated node setups. Includes a .setting file — place it in your macro folder, open Fusion, and drag it in.",
+            "fileUrl": "assets/SHOP/MACROS/HEX_glass_magnify_pfp.setting",
+            "price": "Free"
           }
         ]
       },
@@ -289,17 +362,41 @@
         "label": "Project Files",
         "items": [
           {
-            "name": "TOY-BOX – E.T | Urusei Yatsura Mograph Edit — Project File",
-            "description": "The full project file behind this edit.",
-            "fileUrl": "https://drive.google.com/drive/folders/12QTyf3hGFAH3-1BzeWo2WVEJw4OoGrHZ",
+            "name": "SOLO TU | Draco Project File",
+            "description": "DaVinci Resolve project file for the SOLO TU edit.",
+            "fileUrl": "https://drive.google.com/file/d/1nCrN8GPwAn2pJLI9M2GwQVa6Pta3cftu/view?usp=drivesdk",
+            "videoUrl": "https://www.youtube.com/@hexor_8/search?query=SOLO%20TU%20Draco",
+            "videoLabel": "Find the Edit",
+            "price": "Free"
+          },
+          {
+            "name": "UMARU CHAN Edit Project File",
+            "description": "The full DaVinci Resolve project file behind the Umaru-chan mograph edit.",
+            "fileUrl": "https://drive.google.com/file/d/1EhVg4ObO3q80GLQ6mIIvKZtad02BiacT/view?usp=drivesdk",
+            "videoUrl": "https://www.youtube.com/watch?v=qrsYoF5Jc30",
+            "price": "Free"
+          },
+          {
+            "name": "Cyberpunk MEP Project File",
+            "description": "DaVinci Resolve project file from the Cyberpunk MEP edit.",
+            "fileUrl": "https://drive.google.com/file/d/1_AYTuYPWdXO_xJ_wampwblFXP3PSV6f_/view?usp=drivesdk",
+            "videoUrl": "https://www.youtube.com/@hexor_8/search?query=Cyberpunk%20MEP",
+            "videoLabel": "Find the Edit",
+            "price": "Free"
+          },
+          {
+            "name": "TOY-BOX | E.T Project File",
+            "description": "The full project file behind the Urusei Yatsura mograph edit.",
+            "fileUrl": "https://drive.google.com/file/d/1YWV1mi8pxZWwlG1CsVkCvpD9xqyMqImc/view?usp=drivesdk",
             "videoUrl": "https://www.youtube.com/watch?v=e5PxljLup4M",
             "price": "Free"
           },
           {
-            "name": "Himouto! Umaru-chan Edit // Mograph — Project File",
-            "description": "The full project file behind this edit.",
-            "fileUrl": "https://drive.google.com/drive/folders/1_CnqB5T9msGmjC9bsjxS5DQ5wHfnNMLW",
-            "videoUrl": "https://www.youtube.com/watch?v=qrsYoF5Jc30",
+            "name": "Matt Hardy 999 Project File",
+            "description": "DaVinci Resolve project file for the Matt Hardy mograph edit.",
+            "fileUrl": "https://drive.google.com/file/d/1NqhMP-Ui7KaMYyoELe73z29RdM1rmkLc/view?usp=drivesdk",
+            "videoUrl": "https://www.youtube.com/@hexor_8/search?query=Matt%20Hardy%20999",
+            "videoLabel": "Find the Edit",
             "price": "Free"
           }
         ]
@@ -312,10 +409,48 @@
     "paidHeading": "Paid Products",
     "paidComingSoonText": "Nothing for sale yet — check back soon.",
     "paidCategories": [
-      "Macros",
-      "PowerGrades",
-      "Assets",
-      "Other Products"
+      {
+        "label": "Macros",
+        "items": [
+          {
+            "name": "Glass Magnify PFP Effect Macro",
+            "description": "A smooth, realistic glass magnify effect for profile images and edits. Simple setup, clean results, and ready for DaVinci Resolve Fusion...",
+            "fileUrl": "https://payhip.com/b/73e0K",
+            "price": "Paid"
+          },
+          {
+            "name": "Hyper Slide Macro",
+            "description": "Flow pack macro for fast, fluid slide movement and stylized transitions...",
+            "image": "assets/images/GFX/hyper-slide-coming-soon.jpg",
+            "price": "Coming Soon",
+            "comingSoon": true
+          }
+        ]
+      },
+      {
+        "label": "Project Files",
+        "items": [
+          {
+            "name": "4x4 AMV MIX | Project File",
+            "description": "The project file for the 4x4 AMV mix edit, including the edit structure and visual treatment...",
+            "image": "assets/images/GFX/4x4-amv-mix-project-file-wide.jpg",
+            "fileUrl": "https://payhip.com/b/av26T",
+            "price": "Paid"
+          }
+        ]
+      },
+      {
+        "label": "PowerGrades",
+        "items": []
+      },
+      {
+        "label": "Assets",
+        "items": []
+      },
+      {
+        "label": "Other Products",
+        "items": []
+      }
     ]
   },
   "scraps": {
@@ -408,7 +543,7 @@
         "references": "entry.197757904"
       },
       "workTypeOptions": [
-        "Professional yalking head videos",
+        "Professional talking-head videos",
         "Thumbnail",
         "Banner",
         "Edits",
@@ -514,3 +649,4 @@
     "text": "© 2026 HEXOR_8. All rights reserved."
   }
 }
+

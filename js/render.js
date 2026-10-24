@@ -115,18 +115,50 @@
   const GRID_VISIBLE_LIMIT = 2;
   const BANNER_VISIBLE_LIMIT = 1;
 
-  function buildAnimeEdits() {
+  function renderAnimeEdits(videos) {
     const grid = document.getElementById('animeEditsGrid');
     if (!grid) return;
-    const c = SITE.animeEdits;
-    const html = c.videos.map((v, i) => `
+    const oldToggle = grid.nextElementSibling;
+    if (oldToggle && oldToggle.classList.contains('show-more-btn')) oldToggle.remove();
+    const html = videos.map((v, i) => `
       <button type="button" class="media-card${i >= GRID_VISIBLE_LIMIT ? ' extra-item hidden-extra' : ''}" data-lightbox-video="${escapeHtml(v.id)}">
         <div class="media-thumb"><img src="https://i.ytimg.com/vi/${escapeHtml(v.id)}/hqdefault.jpg" alt=""><span class="play">▶</span></div>
         <div class="caption">${escapeHtml(v.title)}</div>
       </button>`).join('');
     grid.innerHTML = html;
-    const hidden = Math.max(0, c.videos.length - GRID_VISIBLE_LIMIT);
+    const hidden = Math.max(0, videos.length - GRID_VISIBLE_LIMIT);
     attachShowMore(grid, hidden, `Show ${hidden} More`, 'Show Less');
+  }
+
+  function buildAnimeEdits() {
+    const c = SITE.animeEdits;
+    renderAnimeEdits(c.videos);
+    const feed = c.youtubeFeed;
+    if (!feed || !feed.channelId || !window.fetch) return;
+    const feedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + encodeURIComponent(feed.channelId);
+    const parseXml = xmlText => {
+      const parsed = new DOMParser().parseFromString(xmlText, 'application/xml');
+      if (parsed.querySelector('parsererror')) throw new Error('Unable to parse YouTube feed');
+      return Array.from(parsed.getElementsByTagName('entry')).slice(0, Number(feed.maxItems) || 12).map(entry => {
+        const id = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015', 'videoId')[0];
+        const title = entry.getElementsByTagName('title')[0];
+        return id && title ? { id: id.textContent, title: title.textContent.trim() } : null;
+      }).filter(Boolean);
+    };
+    const direct = fetch(feedUrl, { cache: 'no-store' })
+      .then(response => { if (!response.ok) throw new Error('YouTube feed responded with ' + response.status); return response.text(); });
+    const proxy = () => fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl), { cache: 'no-store' })
+      .then(response => { if (!response.ok) throw new Error('Feed proxy responded with ' + response.status); return response.json(); })
+      .then(payload => (payload.items || []).slice(0, Number(feed.maxItems) || 12).map(item => {
+        const match = String(item.guid || item.link || '').match(/(?:yt:video:|video_id:|[?&]v=|youtu\.be\/|shorts\/)([A-Za-z0-9_-]{11})/);
+        return match ? { id: match[1], title: item.title || '' } : null;
+      }).filter(item => item && item.title));
+    direct.catch(() => proxy()).then(payload => {
+      const latest = typeof payload === 'string' ? parseXml(payload) : payload;
+      const known = new Set(c.videos.map(video => video.id));
+      const newVideos = latest.filter(video => !known.has(video.id));
+      if (newVideos.length) renderAnimeEdits(newVideos.concat(c.videos));
+    }).catch(error => console.info('Latest YouTube uploads were not loaded:', error.message));
   }
 
   function buildTalkingHead() {
@@ -240,18 +272,23 @@
   function shopCategoryHtml(cat) {
     const itemsHtml = cat.items.length
       ? cat.items.map((item, i) => {
-          // A same-origin asset (assets/...) triggers a real browser download
-          // via the `download` attribute. An external link (e.g. Google
-          // Drive) can't do that cross-origin anyway, so it just opens the
-          // file's Drive page in a new tab instead — which is the point.
-          const isExternal = /^https?:\/\//.test(item.fileUrl);
+          const driveFile = String(item.fileUrl || '').match(/^https?:\/\/drive\.google\.com\/file\/d\/([^/]+)/i);
+          const fileUrl = driveFile ? `https://drive.google.com/uc?export=download&id=${driveFile[1]}` : item.fileUrl;
+          const isExternal = /^https?:\/\//.test(fileUrl || '');
           const downloadAttrs = isExternal ? 'target="_blank" rel="noopener"' : 'download';
+          const preview = item.image ? `<img class="shop-item-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)} preview">` : '';
+          const action = item.comingSoon
+            ? '<span class="btn btn-outline">Coming Soon</span>'
+            : item.fileUrl
+              ? `<a class="btn btn-primary" href="${escapeHtml(fileUrl)}" ${downloadAttrs}>Download — ${escapeHtml(item.price || 'Free')}</a>`
+              : '';
           return `
         <div class="shop-item${i >= GRID_VISIBLE_LIMIT ? ' extra-item hidden-extra' : ''}">
+          ${preview}
           <div class="shop-item-name">${escapeHtml(item.name)}</div>
           <p class="shop-item-desc">${escapeHtml(item.description)}</p>
           <div class="shop-item-actions">
-            <a class="btn btn-primary" href="${escapeHtml(item.fileUrl)}" ${downloadAttrs}>Download — ${escapeHtml(item.price)}</a>
+            ${action}
             ${item.videoUrl ? `<a class="btn btn-outline" href="${escapeHtml(item.videoUrl)}" target="_blank" rel="noopener">Watch the Edit</a>` : ''}
           </div>
         </div>`;
@@ -287,11 +324,10 @@
 
     const paidWrap = document.getElementById('shopPaidCategories');
     if (paidWrap) {
-      paidWrap.innerHTML = SITE.shop.paidCategories.map(label => `
-        <div class="shop-category">
-          <h4>${escapeHtml(label)}</h4>
-          <div class="shop-item-grid"><div class="shop-item shop-item-empty">${escapeHtml(SITE.shop.paidComingSoonText)}</div></div>
-        </div>`).join('');
+      paidWrap.innerHTML = SITE.shop.paidCategories.map(category => {
+        const cat = typeof category === 'string' ? { label: category, items: [] } : category;
+        return shopCategoryHtml(cat);
+      }).join('');
     }
 
     const moreSection = document.getElementById('shopMore');
@@ -368,3 +404,6 @@
   buildLegalSection('termsSections', SITE.legal.termsSections);
   buildLegalSection('privacySections', SITE.legal.privacySections);
 })();
+
+
+
