@@ -1,0 +1,4 @@
+:HL["/_next/static/chunks/3z7n5i3841ddn.css","style"]
+:HL["/assets/brand/h-mark-coral.png","image"]
+:HL["/assets/brand/h-mark-white.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"assets","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"glass-magnify-pfp-effect","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Fy_QLyjS9mSg6aGoTSUaf"}

@@ -1,26 +1,70 @@
-HEXOR_8 — PRIVACY POLICY
-General information only — not legal advice.
+PRIVACY POLICY
+HEXOR_8 — Effective 10 November 2026 (version 2026-11-10). General information, not legal advice.
 
-INFORMATION COLLECTED
-The HEXOR_8 website is primarily a portfolio and download site. It does not operate its own backend or database for storing visitor information.
+What this site collects, why, who sees it and how long it is kept — in one page.
 
-If you contact HEXOR_8 through an external service, such as Google Forms, Discord, email, or Instagram, that service may process the information you provide according to its own privacy policy.
+IN SHORT
+We collect the minimum needed to sell files: an email (and a name when you buy). No passwords, no card numbers, no tracking without consent, no sale of data, no AI training on your data. You can download or delete everything from your account page.
 
-COMMISSION REQUESTS
-Commission requests submitted through the Hire Me form are processed through Google Forms and may be stored in a linked Google Sheet. The information may include your name, contact details, project requirements, references, and other information you choose to submit.
+WHAT WE COLLECT, AND WHY
+Account: name and email (required to buy), country (optional, sets your currency), the date you accepted the terms and whether you opted into marketing. Purpose: delivering what you bought and proving the purchase.
 
-This information is used to review and respond to commission inquiries. Access is limited to the people managing HEXOR_8, unless disclosure is required by law or necessary to operate the relevant service.
+Orders: the order id, products, rupee amount, your email and the UPI transaction ID (UTR) you give us. Purpose: matching your payment and tax records. We never see your bank, card or UPI PIN — the payment happens inside your own UPI app.
 
-Google's own privacy policy and terms also apply to information processed through Google Forms and Google Sheets.
+Free downloads: the email you type before a download, and whether you ticked the marketing box. Purpose: sending fixes for that file.
 
-DOWNLOADS AND EXTERNAL LINKS
-The site may link to external download hosts, software services, social platforms, or other websites. Those services may collect or process information independently. HEXOR_8 does not control their privacy practices.
+Reviews: what you post, with your nickname.
+
+Server logs: IP address, browser and the pages requested, kept by our host for security.
+
+We do not collect your date of birth, phone number, address, device identifiers, crash reports or anything from third-party SDKs beyond what is listed under cookies.
 
 COOKIES AND TRACKING
-This site does not intentionally use its own tracking cookies or advertising trackers. However, embedded content, hosting services, or external platforms may use technical cookies or collect basic technical information according to their own policies.
+Essential (no consent needed): your sign-in session, your cart, your currency choice, your country, and your cookie choice itself.
 
-DATA REQUESTS
-For questions about information submitted through the commission form, contact HEXOR_8 through the contact links on this site. Requests involving Google Forms or Google Sheets may need to be handled through Google or the relevant service.
+Analytics (only if you accept on the banner): Vercel Web Analytics counts page views without cookies and without cross-site tracking. Nothing analytical runs until you accept, and you can change your mind from the banner link in the footer.
 
-POLICY CHANGES
-This policy may be updated if the website adds new features, analytics, payment services, accounts, or other data-processing tools.
+Embedded YouTube videos load from youtube-nocookie.com and only when you press play; YouTube's own policy applies from then.
+
+WHO WE SHARE DATA WITH (SUB-PROCESSORS)
+Vercel Inc. — Hosting, server logs, and (only with your consent) page-view analytics. Location: USA / EU. Agreement: https://vercel.com/legal/dpa
+
+Supabase Inc. — Database and file storage for accounts, orders, reviews and profile pictures. Location: Mumbai, India (ap-south-1). Agreement: https://supabase.com/legal/dpa
+
+Google LLC (Gmail) — Sending sign-in codes and order emails. Location: USA. Agreement: https://workspace.google.com/terms/dpa_terms.html
+
+Google LLC (Fonts, YouTube) — Web fonts; embedded videos play through youtube-nocookie.com only after you press play. Location: USA. Agreement: https://policies.google.com/privacy
+
+ExchangeRate-API — Daily currency rates for showing prices in your currency (no personal data is sent). Location: Ireland. Agreement: https://www.exchangerate-api.com/terms
+
+Nobody else. We do not sell or rent personal data, and we do not share it with advertisers.
+
+HOW LONG WE KEEP IT
+Sign-in codes: 10 minutes.
+Account: until you delete it from your account page.
+Orders: order records are kept as long as Indian tax law requires (currently up to 8 years), then deleted. Deleting your account removes your name and link to the order; the order record itself stays until that period ends.
+Free-download emails: until you unsubscribe, or 2 years after the last download.
+Reviews: until you or we delete them.
+Server logs: 30 days.
+Emails we sent you: in the sending Gmail account for 1 year.
+
+YOUR RIGHTS
+You can see, export (as a JSON file) and delete your data from your account page at any time. You can also email a request to the address below; we answer within 30 days and may ask you to confirm the email first. If you are in the EU/UK you have the rights under GDPR/UK GDPR, and in India under the DPDP Act, including the right to complain to your supervisory authority.
+
+MARKETING EMAILS
+You only get marketing emails if you tick the separate marketing box at sign-up or on a download — it is unticked by default and not required for anything. Every such email has an unsubscribe link, and the setting is also on your account page. Order emails and sign-in codes are not marketing and are sent regardless.
+
+CHILDREN
+This site is not for anyone under 16. Creating an account requires confirming you are 16 or older, or that a parent or guardian has agreed. If we learn we hold a younger person's data without that consent, we delete it.
+
+AI TRAINING
+We do not use your data, your reviews or your purchases to train AI models, and we do not allow others to. Known AI crawlers are blocked in robots.txt.
+
+SECURITY
+The site is served over HTTPS. Sign-in codes are stored hashed and expire in 10 minutes. Database and storage keys exist only on the server. Downloads for paid products are delivered through links tied to your order. No system is perfectly secure; if a breach affects your data we will tell you.
+
+WHERE DATA IS STORED
+The database is in Mumbai, India. The host (Vercel) and email (Google) operate from the USA and EU under their standard contractual clauses linked above.
+
+CONTACT AND CHANGES
+Data questions and requests: g@tgsidd.com or Discord @hexor_mp4. When this policy changes, the effective date at the top changes with it. Effective 10 November 2026.
