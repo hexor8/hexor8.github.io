@@ -71,6 +71,14 @@
 <priority>0.7</priority>
 </url>
 <url>
+<loc>https://hexor8.github.io/assets/rim-light</loc>
+<image:image>
+<image:loc>https://hexor8.github.io/assets/products/rim-light.webp</image:loc>
+</image:image>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://hexor8.github.io/assets/telemetry</loc>
 <image:image>
 <image:loc>https://hexor8.github.io/assets/products/telemetry.webp</image:loc>
