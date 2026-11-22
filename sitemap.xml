@@ -192,4 +192,12 @@
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
+<url>
+<loc>https://hexor8.github.io/assets/phase</loc>
+<image:image>
+<image:loc>https://hexor8.github.io/assets/products/phase.webp</image:loc>
+</image:image>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
